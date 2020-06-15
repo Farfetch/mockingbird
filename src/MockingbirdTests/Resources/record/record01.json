@@ -1,0 +1,6 @@
+{
+    "type": "GET",
+    "code": 200,
+    "url": "/record01/path",
+    "payload": "{\"title\":\"record01 json\"}"
+}

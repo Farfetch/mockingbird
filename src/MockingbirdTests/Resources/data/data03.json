@@ -1,0 +1,9 @@
+{
+    "title": "Data03 title",
+    "group": "Data03 group",
+    "description": "Data03 description",
+    "type": "GET",
+    "code": 200,
+    "url": "/data03/path",
+    "payload": "{\"title\":\"data03 json\"}"
+}

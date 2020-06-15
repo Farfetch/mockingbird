@@ -1,0 +1,7 @@
+{
+    "title": "TestGroup01",
+    "description": "TestGroup01 Description",
+    "tests": [
+        "Data01"
+    ]
+}
