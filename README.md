@@ -41,7 +41,7 @@ In order to use this tool you need MITMProxy installed through Homebrew.
 
 #### Binary downloads
 
-Oficial binaries can be founded on 'Release Page'
+Oficial binaries can be founded on [Release Page](https://github.com/Farfetch/mockingbird/releases)
 
 #### Compiling
 
@@ -50,9 +50,9 @@ Follow these steps to compile:
 1. Clone this repo to your Mac.
 
     ```
-    git clone https://xxxx...
+    git clone https://github.com/Farfetch/mockingbird.git
 
-    cd Mockingbird/src
+    cd mockingbird/src
     ```
 
 2. Install [Carthage](https://github.com/Carthage/Carthage) if you don't already have it.
@@ -75,7 +75,7 @@ Follow these steps to compile:
 
 ## Usage
 
-Documentation and tutorials can be found on 'Wiki Page'
+Documentation and tutorials can be found on [Wiki Page](https://github.com/Farfetch/mockingbird/wiki)
 
 ## Contributing
 

@@ -84,7 +84,7 @@ private extension ProcessManager {
             if process == .mitmOn,
                 let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") {
 
-                let pipe = self.executeProcess(launch: "/bin/sh", arg: [script, "-s", Default.Folder.mitm + "/proxy.py"])
+                let pipe = self.executeProcess(launch: "/bin/sh", arg: [script, Default.Folder.mitm + "/proxy.py"])
                 let data = pipe.fileHandleForReading.readDataToEndOfFile()
 
                 if let output = String(data: data, encoding: .utf8) {
