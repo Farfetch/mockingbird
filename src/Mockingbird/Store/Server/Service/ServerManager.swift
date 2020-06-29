@@ -112,6 +112,8 @@ private extension ServerManager {
 
             } catch {
 
+                session.writeText(text)
+
                 _log(type: .error, log: error.localizedDescription)
             }
 

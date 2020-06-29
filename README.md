@@ -17,15 +17,16 @@ Mockingbird was designed to simplify software testing, by easily mocking any sys
 
 ## Features
 
-* Well designed and easy user interface, focusing on data manipulation
+* Minimalist and easy to use UI, focused on data manipulation
 * Definition of test scenarios with their respective data mocks
-* Easily create new data mocks using json file with a simple schema
+* Easily create new data mocks using JSON file
 * On the fly data manipulation
-* Monitor and analyse captured decoded transactions so can be analyzed properly (payload, headers, etc)
-* Mocked data can be easily spotted while capturing and analyzing data
-* Snapshot automatic generation using already made captures, just tapping one button (Record)
-* Saved snapshots can be used to replay a recorded scenario easily
-* Real-time traffic analysis, giving good insights from data usage
+* HTTP/HTTPS traffic inspection and analysis
+* Easily spot mocked data while analyzing
+* One-tap button for snapshot generation
+* Snapshot replay (including ‘replay & pop’)
+
+## Installation
 
 ### Requeriments
 
@@ -37,13 +38,11 @@ In order to use this tool you need MITMProxy installed through Homebrew.
     brew install mitmproxy
     ```
 
-## Installation
+### Binary downloads
 
-#### Binary downloads
+Oficial binaries can be found on [Release Page](https://github.com/Farfetch/mockingbird/releases)
 
-Oficial binaries can be founded on [Release Page](https://github.com/Farfetch/mockingbird/releases)
-
-#### Compiling
+### Compiling
 
 Follow these steps to compile:
 

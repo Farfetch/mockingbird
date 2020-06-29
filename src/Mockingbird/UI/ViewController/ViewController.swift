@@ -22,7 +22,6 @@ class ViewController: MTKViewController {
         case transaction
         case stats
         case options
-        case help
     }
 
     private var navigation: Views = .test
@@ -34,7 +33,6 @@ class ViewController: MTKViewController {
     private let captureView = CaptureView()
     private let statsView = StatsView()
     private let optionsView = OptionsView()
-    private let helpView = HelpView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -202,7 +200,6 @@ extension ViewController: GuiRendererDelegate {
                 Spacing()
 
                 navigationButton(title: "Settings", navigation: .options)
-                navigationButton(title: "Help", navigation: .help)
             }
 
             statusView(serverState: serverState, taskState: taskState)
@@ -241,8 +238,6 @@ extension ViewController: GuiRendererDelegate {
             return self.statsView.body(state: AppStore.server.state)
         case .options:
             return self.optionsView.body(state: AppStore.server.state)
-        case .help:
-            return self.helpView.body()
         }
     }
 

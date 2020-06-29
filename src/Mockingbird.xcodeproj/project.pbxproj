@@ -94,7 +94,6 @@
 		B69F01CD23EE2CEE005C8B26 /* TaskReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01CC23EE2CEE005C8B26 /* TaskReducer.swift */; };
 		B69F01CF23EE2CF7005C8B26 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01CE23EE2CF7005C8B26 /* TaskStore.swift */; };
 		B69F01D423EE2EBC005C8B26 /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01D323EE2EBC005C8B26 /* ProcessManager.swift */; };
-		B6BE03A923EB8110002381A7 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BE03A823EB8110002381A7 /* HelpView.swift */; };
 		B6DC20992442586A00F45B7B /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC20982442586A00F45B7B /* Logging.swift */; };
 		B6DC209B24425FC300F45B7B /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC209A24425FC300F45B7B /* ImportView.swift */; };
 		B6F4DECD23EF0B08003FB2C9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4DECC23EF0B08003FB2C9 /* Color.swift */; };
@@ -248,7 +247,6 @@
 		B6ADE759239A940C00A29338 /* SwiftGUI_Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGUI_Core.framework; path = Carthage/Build/Mac/SwiftGUI_Core.framework; sourceTree = "<group>"; };
 		B6ADE75A239A940C00A29338 /* SwiftGui_PlatformOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGui_PlatformOSX.framework; path = Carthage/Build/Mac/SwiftGui_PlatformOSX.framework; sourceTree = "<group>"; };
 		B6AFF69724813260003067D6 /* SwiftGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGui.framework; path = Carthage/Build/SwiftGui.framework; sourceTree = "<group>"; };
-		B6BE03A823EB8110002381A7 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		B6DC20982442586A00F45B7B /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		B6DC209A24425FC300F45B7B /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
 		B6F4DECC23EF0B08003FB2C9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -475,7 +473,6 @@
 			children = (
 				B6736B0923981D320040B29D /* CaptureView.swift */,
 				B6736B0823981D320040B29D /* DataView.swift */,
-				B6BE03A823EB8110002381A7 /* HelpView.swift */,
 				B6DC209A24425FC300F45B7B /* ImportView.swift */,
 				B6729C9B239FB0FC00CAD02D /* OptionsView.swift */,
 				B6F89CC123F18BC2008106F9 /* RecordView.swift */,
@@ -902,7 +899,6 @@
 				B6729C9C239FB0FC00CAD02D /* OptionsView.swift in Sources */,
 				B6736B2E23981D320040B29D /* CaptureView.swift in Sources */,
 				B69F01C823EE29B6005C8B26 /* Util.swift in Sources */,
-				B6BE03A923EB8110002381A7 /* HelpView.swift in Sources */,
 				B6F4DECD23EF0B08003FB2C9 /* Color.swift in Sources */,
 				B6F89CBE23EF70ED008106F9 /* ContextManager.swift in Sources */,
 				B6F89CCB23F199E9008106F9 /* RecordActions.swift in Sources */,

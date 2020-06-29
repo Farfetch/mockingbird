@@ -26,11 +26,19 @@ public class OptionsView {
 
             Divider()
 
-            Tree("Data Options", options: .defaultOpen) {
+            Tree("Options", options: .defaultOpen) {
 
-                LargeButton("OPEN DATA FOLDER") {
+                HStack {
 
-                    Util.openFinder(with: Default.Folder.main)
+                    LargeButton("OPEN DATA FOLDER") {
+
+                        Util.openFinder(with: Default.Folder.main)
+                    }
+
+                    LargeButton("DOCUMENTATION") {
+
+                        Util.openURL(url: "https://github.com/Farfetch/mockingbird/wiki")
+                    }
                 }
             }
         }
