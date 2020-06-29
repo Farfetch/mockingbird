@@ -16,6 +16,6 @@ jobs:
     - name: Run Carthage
       run: cd src;carthage bootstrap --platform Mac
     - name: Build Mockingbird
-      run: xcodebuild build -scheme Mockingbird
+      run: cd src;xcodebuild build -scheme Mockingbird
     - name: Test Mockingbird
-      run: xcodebuild test -scheme Mockingbird
+      run: cd src;xcodebuild test -scheme Mockingbird
