@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216DC9708C747E4014C763B8 /* Pods_Mockingbird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4287C41673FEE0A7D53CFC08 /* Pods_Mockingbird.framework */; };
+		737203AC4CFCF605F6FF30D3 /* Pods_MockingbirdTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */; };
 		B63AA30E2469D15200D6026B /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30D2469D15200D6026B /* ServerTests.swift */; };
 		B63AA3102469D76D00D6026B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30F2469D76D00D6026B /* UtilTests.swift */; };
-		B63AA31C2469E6EC00D6026B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63AA3122469DFE000D6026B /* Starscream.framework */; };
-		B63AA3222469F93300D6026B /* Starscream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B63AA3122469DFE000D6026B /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B640167E245B50FF009EDBBF /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640167D245B50FF009EDBBF /* DataHelper.swift */; };
 		B6401686245B7ECB009EDBBF /* MockingbirdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6401685245B7ECB009EDBBF /* MockingbirdUITests.swift */; };
 		B640168E245C3958009EDBBF /* TestStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640168D245C3958009EDBBF /* TestStoreTests.swift */; };
@@ -23,22 +23,11 @@
 		B64016A9245CA172009EDBBF /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64016A8245CA172009EDBBF /* MainScreen.swift */; };
 		B64016AE245CA377009EDBBF /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64016AD245CA377009EDBBF /* BaseScreen.swift */; };
 		B6420D7B245B2B420048131C /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6420D7A245B2B420048131C /* DataStoreTests.swift */; };
-		B6420D7C245B2F660048131C /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69F019E23ED9D79005C8B26 /* ReSwift.framework */; };
 		B6420D86245B375D0048131C /* data03.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D80245B375D0048131C /* data03.json */; };
 		B6420D87245B375D0048131C /* data02.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D81245B375D0048131C /* data02.json */; };
 		B6420D88245B375D0048131C /* data01.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D82245B375D0048131C /* data01.json */; };
 		B6420D89245B375D0048131C /* test02.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D84245B375D0048131C /* test02.json */; };
 		B6420D8A245B375D0048131C /* test01.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D85245B375D0048131C /* test01.json */; };
-		B6420D8C245B3B1F0048131C /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6420D8B245B3B1E0048131C /* Files.framework */; };
-		B6420D8D245B3B1F0048131C /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6420D8B245B3B1E0048131C /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6420D8E245B3B5B0048131C /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6420D8B245B3B1E0048131C /* Files.framework */; };
-		B6420D8F245B3B5B0048131C /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6736B4123981D720040B29D /* Swifter.framework */; };
-		B6420D93245B3B5B0048131C /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6736BEB23997A830040B29D /* Zip.framework */; };
-		B6495C022481D3E4006F4E87 /* SwiftGui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADE758239A940C00A29338 /* SwiftGui.framework */; };
-		B6495C032481D3E4006F4E87 /* SwiftGui.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADE758239A940C00A29338 /* SwiftGui.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B65572B423D0919600D5056A /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65572B123D0919600D5056A /* AppCenter.framework */; };
-		B65572B623D0919600D5056A /* AppCenterAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65572B223D0919600D5056A /* AppCenterAnalytics.framework */; };
-		B65572BA23D0932A00D5056A /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65572B323D0919600D5056A /* AppCenterCrashes.framework */; };
 		B65572C923D094D400D5056A /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65572C823D094D400D5056A /* Tracking.swift */; };
 		B6729C9C239FB0FC00CAD02D /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6729C9B239FB0FC00CAD02D /* OptionsView.swift */; };
 		B6736ADA23981CED0040B29D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736AD923981CED0040B29D /* AppDelegate.swift */; };
@@ -55,16 +44,12 @@
 		B6736B2F23981D320040B29D /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736B0A23981D320040B29D /* StatsView.swift */; };
 		B6736B3023981D320040B29D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6736B0C23981D320040B29D /* Main.storyboard */; };
 		B6736B3123981D320040B29D /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736B0E23981D320040B29D /* MTKViewController.swift */; };
-		B6736B4223981D720040B29D /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6736B4123981D720040B29D /* Swifter.framework */; };
-		B6736B4323981D720040B29D /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6736B4123981D720040B29D /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6736B452398EB570040B29D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736B442398EB570040B29D /* TestView.swift */; };
 		B6736B5D239923230040B29D /* proxy_off.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B58239923230040B29D /* proxy_off.sh */; };
 		B6736B5E239923230040B29D /* mitm_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B59239923230040B29D /* mitm_on.sh */; };
 		B6736B5F239923230040B29D /* ip_info.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5A239923230040B29D /* ip_info.sh */; };
 		B6736B60239923230040B29D /* mitm_off.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5B239923230040B29D /* mitm_off.sh */; };
 		B6736B61239923230040B29D /* proxy_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5C239923230040B29D /* proxy_on.sh */; };
-		B6736BEC23997A830040B29D /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6736BEB23997A830040B29D /* Zip.framework */; };
-		B6736BED23997A840040B29D /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6736BEB23997A830040B29D /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B683949B23F1CFC600882648 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683949A23F1CFC600882648 /* Default.swift */; };
 		B683949D23F200F800882648 /* RecordGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683949C23F200F800882648 /* RecordGroupInfo.swift */; };
 		B68F436C23CF5BD900D4B69C /* proxy_wifi_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B68F436B23CF5BD900D4B69C /* proxy_wifi_on.sh */; };
@@ -74,8 +59,6 @@
 		B69F019823ED99F8005C8B26 /* ServerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019723ED99F8005C8B26 /* ServerReducer.swift */; };
 		B69F019A23ED9A24005C8B26 /* ServerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019923ED9A24005C8B26 /* ServerActions.swift */; };
 		B69F019D23ED9B59005C8B26 /* ServerCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019C23ED9B59005C8B26 /* ServerCapture.swift */; };
-		B69F019F23ED9D79005C8B26 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69F019E23ED9D79005C8B26 /* ReSwift.framework */; };
-		B69F01A023ED9D79005C8B26 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B69F019E23ED9D79005C8B26 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B69F01A323ED9DC7005C8B26 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01A223ED9DC7005C8B26 /* ServerManager.swift */; };
 		B69F01A523ED9EE2005C8B26 /* ServerStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01A423ED9EE2005C8B26 /* ServerStatistic.swift */; };
 		B69F01A723EDA0A9005C8B26 /* ServerTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F01A623EDA0A9005C8B26 /* ServerTransaction.swift */; };
@@ -107,6 +90,7 @@
 		B6F89CCB23F199E9008106F9 /* RecordActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89CCA23F199E9008106F9 /* RecordActions.swift */; };
 		B6F89CCD23F199F4008106F9 /* RecordReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89CCC23F199F4008106F9 /* RecordReducer.swift */; };
 		B6F89CCF23F199FD008106F9 /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89CCE23F199FD008106F9 /* RecordStore.swift */; };
+		D49E3B1A376949EAC8E8A750 /* Pods_Mockingbird_MockingbirdUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0F99C2D34CD5912BF1BA98 /* Pods_Mockingbird_MockingbirdUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,35 +110,15 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B63AA31D2469E78700D6026B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B63AA3222469F93300D6026B /* Starscream.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B6736B4023981D630040B29D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B6736B4323981D720040B29D /* Swifter.framework in Embed Frameworks */,
-				B69F01A023ED9D79005C8B26 /* ReSwift.framework in Embed Frameworks */,
-				B6495C032481D3E4006F4E87 /* SwiftGui.framework in Embed Frameworks */,
-				B6420D8D245B3B1F0048131C /* Files.framework in Embed Frameworks */,
-				B6736BED23997A840040B29D /* Zip.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		4287C41673FEE0A7D53CFC08 /* Pods_Mockingbird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mockingbird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E0F99C2D34CD5912BF1BA98 /* Pods_Mockingbird_MockingbirdUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mockingbird_MockingbirdUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9271B097B3A188AB8425EE /* Pods-MockingbirdTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MockingbirdTests.debug.xcconfig"; path = "Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82F6C93E672A78CED9371B34 /* Pods-Mockingbird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird.release.xcconfig"; path = "Target Support Files/Pods-Mockingbird/Pods-Mockingbird.release.xcconfig"; sourceTree = "<group>"; };
+		83434BFCBF135F5C552864E6 /* Pods-Mockingbird-MockingbirdUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird-MockingbirdUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		83BCB3BAD6AC4B8D47908BEF /* Pods-Mockingbird-MockingbirdUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; path = "Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MockingbirdTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E8B10A50D0E77C0D935628 /* Pods-MockingbirdTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MockingbirdTests.release.xcconfig"; path = "Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests.release.xcconfig"; sourceTree = "<group>"; };
 		B63AA30D2469D15200D6026B /* ServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTests.swift; sourceTree = "<group>"; };
 		B63AA30F2469D76D00D6026B /* UtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTests.swift; sourceTree = "<group>"; };
 		B63AA3112469DFE000D6026B /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/Mac/SocketIO.framework; sourceTree = "<group>"; };
@@ -260,6 +224,7 @@
 		B6F89CCA23F199E9008106F9 /* RecordActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordActions.swift; sourceTree = "<group>"; };
 		B6F89CCC23F199F4008106F9 /* RecordReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReducer.swift; sourceTree = "<group>"; };
 		B6F89CCE23F199FD008106F9 /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
+		DD3EAA71F2F51D861950DC6C /* Pods-Mockingbird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird.debug.xcconfig"; path = "Target Support Files/Pods-Mockingbird/Pods-Mockingbird.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49E3B1A376949EAC8E8A750 /* Pods_Mockingbird_MockingbirdUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B63AA31C2469E6EC00D6026B /* Starscream.framework in Frameworks */,
-				B6420D8E245B3B5B0048131C /* Files.framework in Frameworks */,
-				B6420D8F245B3B5B0048131C /* Swifter.framework in Frameworks */,
-				B6420D93245B3B5B0048131C /* Zip.framework in Frameworks */,
-				B6420D7C245B2F660048131C /* ReSwift.framework in Frameworks */,
+				737203AC4CFCF605F6FF30D3 /* Pods_MockingbirdTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,20 +248,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6495C022481D3E4006F4E87 /* SwiftGui.framework in Frameworks */,
-				B69F019F23ED9D79005C8B26 /* ReSwift.framework in Frameworks */,
-				B6736B4223981D720040B29D /* Swifter.framework in Frameworks */,
-				B65572BA23D0932A00D5056A /* AppCenterCrashes.framework in Frameworks */,
-				B65572B423D0919600D5056A /* AppCenter.framework in Frameworks */,
-				B65572B623D0919600D5056A /* AppCenterAnalytics.framework in Frameworks */,
-				B6420D8C245B3B1F0048131C /* Files.framework in Frameworks */,
-				B6736BEC23997A830040B29D /* Zip.framework in Frameworks */,
+				216DC9708C747E4014C763B8 /* Pods_Mockingbird.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550E4C228D437900BDBD2590 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD3EAA71F2F51D861950DC6C /* Pods-Mockingbird.debug.xcconfig */,
+				82F6C93E672A78CED9371B34 /* Pods-Mockingbird.release.xcconfig */,
+				83434BFCBF135F5C552864E6 /* Pods-Mockingbird-MockingbirdUITests.debug.xcconfig */,
+				83BCB3BAD6AC4B8D47908BEF /* Pods-Mockingbird-MockingbirdUITests.release.xcconfig */,
+				6A9271B097B3A188AB8425EE /* Pods-MockingbirdTests.debug.xcconfig */,
+				95E8B10A50D0E77C0D935628 /* Pods-MockingbirdTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B611359423D1DC0F00143B07 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +385,7 @@
 				B6401684245B7ECB009EDBBF /* MockingbirdUITests */,
 				B6736AD723981CED0040B29D /* Products */,
 				B6736B3623981D630040B29D /* Frameworks */,
+				550E4C228D437900BDBD2590 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,6 +488,9 @@
 				B6736B3723981D630040B29D /* SwiftGui.framework */,
 				B6736B3823981D630040B29D /* SwiftGUI_Core.framework */,
 				B6736B3923981D630040B29D /* SwiftGui_PlatformOSX.framework */,
+				4287C41673FEE0A7D53CFC08 /* Pods_Mockingbird.framework */,
+				5E0F99C2D34CD5912BF1BA98 /* Pods_Mockingbird_MockingbirdUITests.framework */,
+				8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -698,9 +671,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B640168A245B7ECB009EDBBF /* Build configuration list for PBXNativeTarget "MockingbirdUITests" */;
 			buildPhases = (
+				226266E3AB22A1318588E962 /* [CP] Check Pods Manifest.lock */,
 				B640167F245B7ECB009EDBBF /* Sources */,
 				B6401680245B7ECB009EDBBF /* Frameworks */,
 				B6401681245B7ECB009EDBBF /* Resources */,
+				96B2406A762E70760102E4C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -716,10 +691,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6420D78245B27B80048131C /* Build configuration list for PBXNativeTarget "MockingbirdTests" */;
 			buildPhases = (
+				BDFAAC2CE9D59A3FB2D3FD8F /* [CP] Check Pods Manifest.lock */,
 				B6420D6B245B27B80048131C /* Sources */,
 				B6420D6C245B27B80048131C /* Frameworks */,
 				B6420D6D245B27B80048131C /* Resources */,
-				B63AA31D2469E78700D6026B /* CopyFiles */,
+				03C1FF36402F84DB36C64F6F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -735,11 +711,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6736AE623981CEF0040B29D /* Build configuration list for PBXNativeTarget "Mockingbird" */;
 			buildPhases = (
+				F8C309D801AE3B45AD84E6FD /* [CP] Check Pods Manifest.lock */,
 				B6736AD223981CED0040B29D /* Sources */,
 				B6736AD323981CED0040B29D /* Frameworks */,
 				B6736AD423981CED0040B29D /* Resources */,
-				B6736B4023981D630040B29D /* Embed Frameworks */,
 				B6DC2097243F8A8900F45B7B /* Swiftlint */,
+				9A971137634EC016FB6C5E97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -836,6 +813,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03C1FF36402F84DB36C64F6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		226266E3AB22A1318588E962 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mockingbird-MockingbirdUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B2406A762E70760102E4C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A971137634EC016FB6C5E97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mockingbird/Pods-Mockingbird-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mockingbird/Pods-Mockingbird-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mockingbird/Pods-Mockingbird-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6DC2097243F8A8900F45B7B /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -853,6 +903,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		BDFAAC2CE9D59A3FB2D3FD8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MockingbirdTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8C309D801AE3B45AD84E6FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mockingbird-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -978,6 +1072,7 @@
 /* Begin XCBuildConfiguration section */
 		B640168B245B7ECB009EDBBF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83434BFCBF135F5C552864E6 /* Pods-Mockingbird-MockingbirdUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1000,6 +1095,7 @@
 		};
 		B640168C245B7ECB009EDBBF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83BCB3BAD6AC4B8D47908BEF /* Pods-Mockingbird-MockingbirdUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1022,6 +1118,7 @@
 		};
 		B6420D76245B27B80048131C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A9271B097B3A188AB8425EE /* Pods-MockingbirdTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1045,6 +1142,7 @@
 		};
 		B6420D77245B27B80048131C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E8B10A50D0E77C0D935628 /* Pods-MockingbirdTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1181,6 +1279,7 @@
 		};
 		B6736AE723981CEF0040B29D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD3EAA71F2F51D861950DC6C /* Pods-Mockingbird.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mockingbird/Resources/mockingbird.entitlements;
@@ -1209,6 +1308,7 @@
 		};
 		B6736AE823981CEF0040B29D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82F6C93E672A78CED9371B34 /* Pods-Mockingbird.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mockingbird/Resources/mockingbird.entitlements;

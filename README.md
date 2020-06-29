@@ -54,22 +54,22 @@ Follow these steps to compile:
     cd mockingbird/src
     ```
 
-2. Install [Carthage](https://github.com/Carthage/Carthage) if you don't already have it.
+2. Install [Cocoapods](http://cocoapods.org) if you don't already have it.
 
     ```
-    brew install carthage
+    sudo gem install cocoapods
     ```
 
 3. Retrieve and build dependencies.
 
     ```
-    carthage bootstrap --platform Mac
+    pod install
     ```
 
-4. Open the project file in Xcode then build and run.
+4. Open the workspace file in Xcode then build and run.
 
     ```
-    open Mockingbird.xcodeproj
+    open Mockingbird.xcworkspace
     ```
 
 ## Usage

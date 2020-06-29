@@ -1,4 +1,4 @@
-name: PR Action
+name: Build Action
 on:
   push:
     branches: [ master ]
@@ -8,19 +8,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Carthage
-      run: brew install carthage
+    - name: Install Cocoapods
+      run: gem install cocoapods
 
     - name: Install Swiftlint
       run: brew install swiftlint
 
-    - name: Run Carthage
-      run: carthage bootstrap --platform macOS --cache-builds --project-directory ./src
-
-    - name: Build Mockingbird
+    - name: Dependencies
       working-directory: ./src
-      run: xcodebuild build -scheme Mockingbird
+      run: pod install --repo-update
 
-    - name: Test Mockingbird
+    - name: Build
       working-directory: ./src
-      run: xcodebuild test -scheme Mockingbird
+      run: xcodebuild -workspace Mockingbird.xcworkspace build -scheme Mockingbird
+
+    - name: Test
+      working-directory: ./src
+      run: xcodebuild -workspace Mockingbird.xcworkspace test -scheme Mockingbird
