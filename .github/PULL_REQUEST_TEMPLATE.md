@@ -43,3 +43,7 @@
 - [ ] I have read the [CONTRIBUTING](CONTRIBUTING.md) document.
 - [ ] I have added tests to cover my changes.
 - [ ] All new and existing tests passed.
+
+### Disclaimer
+
+By sending us your contributions, you are agreeing that your contribution is made subject to the terms of our [Contributor Ownership Statement](https://github.com/Farfetch/.github/blob/master/COS.md)

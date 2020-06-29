@@ -82,7 +82,7 @@ Read the [Contributing guidelines](CONTRIBUTING.md)
 
 ## Maintainers
 
-@erickjung
+* [erickjung](https://github.com/erickjung)
 
 ## License
 

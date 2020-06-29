@@ -2,20 +2,25 @@ name: PR Action
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 jobs:
   build:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+
     - name: Install Carthage
       run: brew install carthage
+
     - name: Install Swiftlint
       run: brew install swiftlint
+
     - name: Run Carthage
-      run: cd src;carthage bootstrap --platform Mac
+      run: carthage bootstrap --platform macOS --cache-builds --project-directory ./src
+
     - name: Build Mockingbird
-      run: cd src;xcodebuild build -scheme Mockingbird
+      working-directory: ./src
+      run: xcodebuild build -scheme Mockingbird
+
     - name: Test Mockingbird
-      run: cd src;xcodebuild test -scheme Mockingbird
+      working-directory: ./src
+      run: xcodebuild test -scheme Mockingbird
