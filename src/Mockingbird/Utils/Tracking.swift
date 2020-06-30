@@ -8,16 +8,13 @@
 
 import Foundation
 import AppCenter
-import AppCenterAnalytics
 import AppCenterCrashes
-import AppCenterPush
 
 final class Tracking {
 
     static func initialize() {
 
         MSAppCenter.start(Default.Token.tracking, withServices: [
-          MSAnalytics.self,
           MSCrashes.self
         ])
     }
