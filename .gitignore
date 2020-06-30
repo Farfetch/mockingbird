@@ -51,7 +51,7 @@
 # c.f. the "OPTIONAL" section at bottom though, for tool-specific variations!
 #
 # In particular, if you're using CocoaPods, you'll want to comment-out this line:
-*.lock
+# *.lock
 
 
 #

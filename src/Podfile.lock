@@ -1,0 +1,48 @@
+PODS:
+  - AppCenter (3.3.0):
+    - AppCenter/Analytics (= 3.3.0)
+    - AppCenter/Crashes (= 3.3.0)
+  - AppCenter/Analytics (3.3.0):
+    - AppCenter/Core
+  - AppCenter/Core (3.3.0)
+  - AppCenter/Crashes (3.3.0):
+    - AppCenter/Core
+  - Files (4.0.2)
+  - ReSwift (5.0.0)
+  - Starscream (4.0.3)
+  - Swifter (1.4.7)
+  - SwiftGui (0.9.2)
+  - Zip (1.1.0)
+
+DEPENDENCIES:
+  - AppCenter (~> 3.3.0)
+  - AppCenter/Crashes (~> 3.3.0)
+  - Files (~> 4.0.2)
+  - ReSwift (~> 5.0.0)
+  - Starscream (~> 4.0.3)
+  - Swifter (~> 1.4.7)
+  - SwiftGui (~> 0.9.2)
+  - Zip (~> 1.1.0)
+
+SPEC REPOS:
+  trunk:
+    - AppCenter
+    - Files
+    - ReSwift
+    - Starscream
+    - Swifter
+    - SwiftGui
+    - Zip
+
+SPEC CHECKSUMS:
+  AppCenter: 976294db3f288d82204afc6ad71790d71be249ac
+  Files: d88e31b84d65e754935053b1c584ea8e2320698a
+  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
+  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
+  SwiftGui: 081f72b4dabff4ffb9af254650ec8baa17ec1949
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
+
+PODFILE CHECKSUM: b07fdfaeb47f582c44ef8c92341f5d146ca00122
+
+COCOAPODS: 1.9.3
