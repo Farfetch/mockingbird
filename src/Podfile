@@ -10,7 +10,6 @@ target 'Mockingbird' do
   pod 'ReSwift', '~> 5.0.0'
   pod 'Files', '~> 4.0.2'
   pod 'AppCenter', '~> 3.3.0'
-  pod 'AppCenter/Crashes', '~> 3.3.0'
 
   target 'MockingbirdTests' do
     inherit! :search_paths

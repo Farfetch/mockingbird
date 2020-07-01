@@ -16,7 +16,6 @@ PODS:
 
 DEPENDENCIES:
   - AppCenter (~> 3.3.0)
-  - AppCenter/Crashes (~> 3.3.0)
   - Files (~> 4.0.2)
   - ReSwift (~> 5.0.0)
   - Starscream (~> 4.0.3)
@@ -43,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftGui: 081f72b4dabff4ffb9af254650ec8baa17ec1949
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: f49228be604e9bff308e0335f66f204f0e1e8e5d
+PODFILE CHECKSUM: d20c40af7ed4b45f2388482e471367d2d0dae10a
 
 COCOAPODS: 1.9.3
