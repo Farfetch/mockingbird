@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProcessTaskCallback {
-    
+
     func processStarted(_ process: ProcessType)
     func stdoutUpdated(_ process: ProcessType, text: String)
     func stderrUpdated(_ process: ProcessType, text: String)
@@ -52,20 +52,20 @@ class ProcessTask {
     static func launchSync(process: ProcessType, callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") else { return }
-        
+
         DispatchQueue.global(qos: .background).async {
 
             callback?.processStarted(process)
 
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
-            
+
             let task = Process()
             task.launchPath = "/bin/sh"
             task.arguments = [script, (script as NSString).deletingLastPathComponent]
             task.standardOutput = stdoutPipe
             task.standardError = stderrPipe
-            
+
             task.launch()
             task.waitUntilExit()
 
@@ -84,108 +84,108 @@ class ProcessTask {
             callback?.processEnded(process)
         }
     }
-    
+
     static func launchAsync(process: ProcessType, callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") else { return }
-        
+
         DispatchQueue.global(qos: .background).async {
 
             callback?.processStarted(process)
 
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
-            
+
             let task = Process()
             task.launchPath = "/bin/sh"
             task.arguments = [script, (script as NSString).deletingLastPathComponent]
             task.standardOutput = stdoutPipe
             task.standardError = stderrPipe
-            
+
             let stdoutObserver = Self.addNotification(for: stdoutPipe.fileHandleForReading) { text in
-                
+
                 callback?.stdoutUpdated(process, text: text)
             }
 
             let stderrObserver = Self.addNotification(for: stderrPipe.fileHandleForReading) { text in
-                
+
                 callback?.stderrUpdated(process, text: text)
             }
-            
+
             task.launch()
             task.waitUntilExit()
-            
+
             NotificationCenter.default.removeObserver(stdoutObserver)
             NotificationCenter.default.removeObserver(stderrObserver)
 
             callback?.processEnded(process)
         }
     }
-    
+
     static func runAsync(process: ProcessType, callback: ProcessTaskCallback?) {
 
         guard let executablePath = process.command.executable else { return }
-        
+
         DispatchQueue.global(qos: .background).async {
 
             callback?.processStarted(process)
 
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
-            
+
             let task = Process()
             task.executableURL = URL(fileURLWithPath: executablePath)
             task.standardOutput = stdoutPipe
             task.standardError = stderrPipe
-            
+
             let stdoutObserver = Self.addNotification(for: stdoutPipe.fileHandleForReading) { text in
-                
+
                 callback?.stdoutUpdated(process, text: text)
             }
 
             let stderrObserver = Self.addNotification(for: stderrPipe.fileHandleForReading) { text in
-                
+
                 callback?.stderrUpdated(process, text: text)
             }
-            
+
             do {
 
                 try task.run()
                 task.waitUntilExit()
-                
+
             } catch {
-                
+
                 callback?.processError(process, error: error)
             }
-            
+
             NotificationCenter.default.removeObserver(stdoutObserver)
             NotificationCenter.default.removeObserver(stderrObserver)
-            
+
             callback?.processEnded(process)
         }
     }
-    
+
     @discardableResult
     private static func addNotification(for fileHandle: FileHandle,
-                                complete: @escaping (String) -> Void) -> NSObjectProtocol {
-        
+                                        complete: @escaping (String) -> Void) -> NSObjectProtocol {
+
         let observer = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable,
                                                               object: fileHandle,
                                                               queue: nil) { notification in
-            
+
             guard let handle = notification.object as? FileHandle else { return }
-            
+
             if let text = String(data: handle.availableData, encoding: String.Encoding.utf8),
                text.count > 0 {
 
                 complete(text)
             }
-            
+
             handle.waitForDataInBackgroundAndNotify()
         }
-        
+
         fileHandle.waitForDataInBackgroundAndNotify()
-        
+
         return observer
     }
 }

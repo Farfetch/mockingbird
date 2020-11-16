@@ -8,72 +8,71 @@
 
 import Foundation
 
-
 final class ProcessManager {
 
     static let shared = ProcessManager()
-    
+
     private var mitmProcess: Process?
 
     func execute(process: ProcessType) {
 
         switch process {
-        
+
         case .mitmOn:
-            
+
             ProcessTask.runAsync(process: process, callback: self)
 
         case .ipInfo:
-            
+
             ProcessTask.launchSync(process: process, callback: self)
 
         default:
-            
+
             ProcessTask.launchAsync(process: process, callback: self)
         }
     }
 }
 
 extension ProcessManager: ProcessTaskCallback {
-    
+
     func processStarted(_ process: ProcessType) {
-        
+
         _log(type: .debug, log: "started: \(process)")
     }
-    
+
     func stdoutUpdated(_ process: ProcessType, text: String) {
-        
+
         _log(type: .debug, log: "stdout: \(text)")
-        
+
         switch process {
-        
+
         case .mitmOn:
             AppStore.server.dispatch(ServerAction.processed)
 
         case .ipInfo:
             AppStore.task.dispatch(TaskAction.updateIpInfo(info: text))
-            
+
         default:
             break
         }
     }
-    
+
     func stderrUpdated(_ process: ProcessType, text: String) {
-        
+
         _log(type: .info, log: "stderr: \(text)")
     }
 
     func processError(_ process: ProcessType, error: Error) {
-        
+
         _log(type: .info, log: "error: \(error)")
     }
 
     func processEnded(_ process: ProcessType) {
-        
+
         _log(type: .debug, log: "ended: \(process)")
-        
+
         switch process {
-        
+
         case .mitmOn:
             AppStore.task.dispatch(TaskAction.stopMitm)
 
