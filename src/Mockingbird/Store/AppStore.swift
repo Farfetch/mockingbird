@@ -14,7 +14,7 @@ private let logging: Middleware<StateType> = { dispatch, getState in
         return { action in
 
             #if DEBUG
-                _log(type: .info, log: "\(action)")
+                _log(type: .debug, log: "\(action)")
             #endif
 
             return next(action)

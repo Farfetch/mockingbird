@@ -15,9 +15,6 @@ final class Tracking {
 
     static func initialize() {
 
-        MSAppCenter.start(Default.Token.tracking, withServices: [
-            MSAnalytics.self,
-            MSCrashes.self
-        ])
+        AppCenter.start(withAppSecret: Default.Token.tracking, services: [Analytics.self, Crashes.self])
     }
 }

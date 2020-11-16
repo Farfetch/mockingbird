@@ -9,12 +9,12 @@ target 'Mockingbird' do
   pod 'SwiftGui', '~> 0.9.2'
   pod 'ReSwift', '~> 5.0.0'
   pod 'Files', '~> 4.0.2'
-  pod 'AppCenter', '~> 3.3.0'
+  pod 'AppCenter', '~> 4.0.0'
 
   target 'MockingbirdTests' do
     inherit! :search_paths
 
-    pod 'Starscream', '~> 4.0.3'
+    pod 'Starscream', '~> 4.0.4'
     
   end
 

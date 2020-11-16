@@ -13,6 +13,7 @@ enum ServerAction: Action {
     case initialize
     case start
     case stop
+    case processed
     case setCurrent(capture: ServerCapture?)
     case addCapture(capture: ServerCapture)
     case clearCapture

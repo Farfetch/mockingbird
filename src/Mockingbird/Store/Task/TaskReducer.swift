@@ -72,7 +72,7 @@ private extension TaskReducer {
 
             if dataFolder.files.count() <= 0 {
 
-                if let fileURL = Bundle.main.url(forResource: "mitm_script", withExtension: "zip"),
+                if let fileURL = Bundle.main.url(forResource: "mitmdump_mb", withExtension: "zip"),
                     let destURL = URL(string: Default.Folder.mitm) {
 
                     try Zip.unzipFile(fileURL, destination: destURL, overwrite: false, password: nil)

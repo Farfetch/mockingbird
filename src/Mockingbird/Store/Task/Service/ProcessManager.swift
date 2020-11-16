@@ -8,111 +8,80 @@
 
 import Foundation
 
-struct ProcessObject {
-
-    let type: ProcessType
-    let script: String
-    let ignoreReturn: Bool
-}
-
-enum ProcessType {
-
-    case proxyOn
-    case proxyWifiOn
-    case proxyOff
-    case mitmOn
-    case mitmOff
-    case ipInfo
-
-    var command: ProcessObject {
-
-        switch self {
-
-        case .proxyOn: return ProcessObject(type: self, script: "proxy_on", ignoreReturn: true)
-        case .proxyWifiOn: return ProcessObject(type: self, script: "proxy_wifi_on", ignoreReturn: true)
-        case .proxyOff: return ProcessObject(type: self, script: "proxy_off", ignoreReturn: true)
-        case .mitmOn: return ProcessObject(type: self, script: "mitm_on", ignoreReturn: false)
-        case .mitmOff: return ProcessObject(type: self, script: "mitm_off", ignoreReturn: true)
-        case .ipInfo: return ProcessObject(type: self, script: "ip_info", ignoreReturn: false)
-        }
-    }
-}
 
 final class ProcessManager {
 
     static let shared = ProcessManager()
+    
+    private var mitmProcess: Process?
 
     func execute(process: ProcessType) {
 
-        self.executeInternal(process: process)
+        switch process {
+        
+        case .mitmOn:
+            
+            ProcessTask.runAsync(process: process, callback: self)
+
+        case .ipInfo:
+            
+            ProcessTask.launchSync(process: process, callback: self)
+
+        default:
+            
+            ProcessTask.launchAsync(process: process, callback: self)
+        }
     }
 }
 
-private extension ProcessManager {
+extension ProcessManager: ProcessTaskCallback {
+    
+    func processStarted(_ process: ProcessType) {
+        
+        _log(type: .debug, log: "started: \(process)")
+    }
+    
+    func stdoutUpdated(_ process: ProcessType, text: String) {
+        
+        _log(type: .debug, log: "stdout: \(text)")
+        
+        switch process {
+        
+        case .mitmOn:
+            AppStore.server.dispatch(ServerAction.processed)
 
-    @discardableResult
-    func executeProcess(launch: String, arg: [String]?) -> Pipe {
-
-        let process = Process()
-        process.launchPath = launch
-
-        if let arg = arg {
-
-            process.arguments = arg
+        case .ipInfo:
+            AppStore.task.dispatch(TaskAction.updateIpInfo(info: text))
+            
+        default:
+            break
         }
-
-        let outPipe = Pipe()
-        let errorPipe = Pipe()
-        process.standardOutput = outPipe
-        process.standardError = errorPipe
-        process.launch()
-
-        let error = errorPipe.fileHandleForReading.readDataToEndOfFile()
-        if let errorText = String(data: error, encoding: .utf8),
-            !errorText.isEmpty {
-
-            _log(type: .error, log: "Task Error: \(errorText)")
-        }
-
-        return outPipe
+    }
+    
+    func stderrUpdated(_ process: ProcessType, text: String) {
+        
+        _log(type: .info, log: "stderr: \(text)")
     }
 
-    func executeInternal(process: ProcessType) {
+    func processError(_ process: ProcessType, error: Error) {
+        
+        _log(type: .info, log: "error: \(error)")
+    }
 
-        DispatchQueue.global(qos: .background).async {
+    func processEnded(_ process: ProcessType) {
+        
+        _log(type: .debug, log: "ended: \(process)")
+        
+        switch process {
+        
+        case .mitmOn:
+            AppStore.task.dispatch(TaskAction.stopMitm)
 
-            if process == .mitmOn,
-                let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") {
+        case .mitmOff:
+            AppStore.server.dispatch(ServerAction.processed)
 
-                let pipe = self.executeProcess(launch: "/bin/sh", arg: [script, Default.Folder.mitm + "/proxy.py"])
-                let data = pipe.fileHandleForReading.readDataToEndOfFile()
-
-                if let output = String(data: data, encoding: .utf8) {
-
-                    _log(type: .error, log: "MITM Error: \(output)")
-
-                    AppStore.task.dispatch(TaskAction.stopMitm)
-                }
-
-            } else if let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") {
-
-                let pipe = self.executeProcess(launch: "/bin/sh", arg: [script, (script as NSString).deletingLastPathComponent])
-
-                if !process.command.ignoreReturn {
-
-                    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-                    let output = String(data: data, encoding: .utf8)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-
-                        if process == .ipInfo,
-                            let output = output {
-
-                            AppStore.task.dispatch(TaskAction.updateIpInfo(info: output))
-                        }
-                    }
-                }
-            }
+        default:
+            break
         }
     }
 }

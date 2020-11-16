@@ -26,6 +26,7 @@ struct ServerState: StateType {
     var filter: String = ""
 
     var isRunning: Bool = false
+    var isProcessingCommand: Bool = false
 
     // UI states
     var isRequestSelected: Bool = true
