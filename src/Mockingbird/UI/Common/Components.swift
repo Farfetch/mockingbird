@@ -53,6 +53,15 @@ func ButtonGreen(_ title: String,
         .borderColor(Color.green)
 }
 
+func ButtonDisabled(_ title: String) -> GuiNode {
+
+    Button(title, onTap: nil)
+        .backgroundColor(Color.darkGray)
+        .hoveredColor(Color.darkGray)
+        .textColor(Color.white)
+        .borderColor(Color.darkGray)
+}
+
 func ButtonWhite(_ title: String,
                  onTap: (() -> Void)? = nil) -> GuiView {
 

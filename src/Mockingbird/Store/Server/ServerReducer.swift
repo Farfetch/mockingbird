@@ -31,10 +31,16 @@ class ServerReducer {
         case .start:
 
             state.isRunning = true
+            state.isProcessingCommand = true
 
         case .stop:
 
             state.isRunning = false
+            state.isProcessingCommand = true
+
+        case .processed:
+
+            state.isProcessingCommand = false
 
         case .setCurrent(let capture):
 

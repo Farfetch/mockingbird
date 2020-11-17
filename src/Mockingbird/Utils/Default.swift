@@ -26,7 +26,7 @@ final class Default {
         static var main = "/Users/" + NSUserName() + "/.mockingbird"
         static var capture: String { main + "/capture" }
         static var data: String { main + "/data" }
-        static var mitm: String { main + "/mitm" }
+        static var mitm: String { main + "/mitmproxy" }
         static var record: String { main + "/record" }
         static var test: String { main + "/test" }
     }

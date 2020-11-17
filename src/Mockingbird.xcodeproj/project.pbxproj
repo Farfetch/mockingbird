@@ -28,6 +28,8 @@
 		B6420D88245B375D0048131C /* data01.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D82245B375D0048131C /* data01.json */; };
 		B6420D89245B375D0048131C /* test02.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D84245B375D0048131C /* test02.json */; };
 		B6420D8A245B375D0048131C /* test01.json in Resources */ = {isa = PBXBuildFile; fileRef = B6420D85245B375D0048131C /* test01.json */; };
+		B652677225619054000B1E34 /* ProcessTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652677125619054000B1E34 /* ProcessTask.swift */; };
+		B652677A25619D8A000B1E34 /* mitmdump_mb.zip in Resources */ = {isa = PBXBuildFile; fileRef = B652677925619D8A000B1E34 /* mitmdump_mb.zip */; };
 		B65572C923D094D400D5056A /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65572C823D094D400D5056A /* Tracking.swift */; };
 		B6729C9C239FB0FC00CAD02D /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6729C9B239FB0FC00CAD02D /* OptionsView.swift */; };
 		B6736ADA23981CED0040B29D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736AD923981CED0040B29D /* AppDelegate.swift */; };
@@ -46,14 +48,12 @@
 		B6736B3123981D320040B29D /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736B0E23981D320040B29D /* MTKViewController.swift */; };
 		B6736B452398EB570040B29D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6736B442398EB570040B29D /* TestView.swift */; };
 		B6736B5D239923230040B29D /* proxy_off.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B58239923230040B29D /* proxy_off.sh */; };
-		B6736B5E239923230040B29D /* mitm_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B59239923230040B29D /* mitm_on.sh */; };
 		B6736B5F239923230040B29D /* ip_info.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5A239923230040B29D /* ip_info.sh */; };
 		B6736B60239923230040B29D /* mitm_off.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5B239923230040B29D /* mitm_off.sh */; };
 		B6736B61239923230040B29D /* proxy_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B6736B5C239923230040B29D /* proxy_on.sh */; };
 		B683949B23F1CFC600882648 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683949A23F1CFC600882648 /* Default.swift */; };
 		B683949D23F200F800882648 /* RecordGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683949C23F200F800882648 /* RecordGroupInfo.swift */; };
 		B68F436C23CF5BD900D4B69C /* proxy_wifi_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = B68F436B23CF5BD900D4B69C /* proxy_wifi_on.sh */; };
-		B694180F24115D4200A1D5F6 /* mitm_script.zip in Resources */ = {isa = PBXBuildFile; fileRef = B694180E24115D4200A1D5F6 /* mitm_script.zip */; };
 		B69F019323ED996F005C8B26 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019223ED996F005C8B26 /* AppStore.swift */; };
 		B69F019623ED99AF005C8B26 /* ServerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019523ED99AF005C8B26 /* ServerStore.swift */; };
 		B69F019823ED99F8005C8B26 /* ServerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F019723ED99F8005C8B26 /* ServerReducer.swift */; };
@@ -145,6 +145,8 @@
 		B6420D84245B375D0048131C /* test02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test02.json; sourceTree = "<group>"; };
 		B6420D85245B375D0048131C /* test01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test01.json; sourceTree = "<group>"; };
 		B6420D8B245B3B1E0048131C /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
+		B652677125619054000B1E34 /* ProcessTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessTask.swift; sourceTree = "<group>"; };
+		B652677925619D8A000B1E34 /* mitmdump_mb.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = mitmdump_mb.zip; sourceTree = "<group>"; };
 		B65572B123D0919600D5056A /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenter.framework; path = Carthage/Build/Mac/AppCenter.framework; sourceTree = "<group>"; };
 		B65572B223D0919600D5056A /* AppCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterAnalytics.framework; path = Carthage/Build/Mac/AppCenterAnalytics.framework; sourceTree = "<group>"; };
 		B65572B323D0919600D5056A /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = Carthage/Build/Mac/AppCenterCrashes.framework; sourceTree = "<group>"; };
@@ -173,7 +175,6 @@
 		B6736B4123981D720040B29D /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/Mac/Swifter.framework; sourceTree = "<group>"; };
 		B6736B442398EB570040B29D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B6736B58239923230040B29D /* proxy_off.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = proxy_off.sh; sourceTree = "<group>"; };
-		B6736B59239923230040B29D /* mitm_on.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mitm_on.sh; sourceTree = "<group>"; };
 		B6736B5A239923230040B29D /* ip_info.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ip_info.sh; sourceTree = "<group>"; };
 		B6736B5B239923230040B29D /* mitm_off.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mitm_off.sh; sourceTree = "<group>"; };
 		B6736B5C239923230040B29D /* proxy_on.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = proxy_on.sh; sourceTree = "<group>"; };
@@ -182,7 +183,6 @@
 		B683949A23F1CFC600882648 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
 		B683949C23F200F800882648 /* RecordGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordGroupInfo.swift; sourceTree = "<group>"; };
 		B68F436B23CF5BD900D4B69C /* proxy_wifi_on.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = proxy_wifi_on.sh; sourceTree = "<group>"; };
-		B694180E24115D4200A1D5F6 /* mitm_script.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = mitm_script.zip; sourceTree = "<group>"; };
 		B69F019223ED996F005C8B26 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		B69F019523ED99AF005C8B26 /* ServerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStore.swift; sourceTree = "<group>"; };
 		B69F019723ED99F8005C8B26 /* ServerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerReducer.swift; sourceTree = "<group>"; };
@@ -499,7 +499,6 @@
 			children = (
 				B6736B5A239923230040B29D /* ip_info.sh */,
 				B6736B5B239923230040B29D /* mitm_off.sh */,
-				B6736B59239923230040B29D /* mitm_on.sh */,
 				B6736B58239923230040B29D /* proxy_off.sh */,
 				B6736B5C239923230040B29D /* proxy_on.sh */,
 				B68F436B23CF5BD900D4B69C /* proxy_wifi_on.sh */,
@@ -595,9 +594,9 @@
 		B69F01C623EE287E005C8B26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B652677925619D8A000B1E34 /* mitmdump_mb.zip */,
 				B6736AE923981D310040B29D /* Assets.xcassets */,
 				B6736AE323981CEF0040B29D /* mockingbird.entitlements */,
-				B694180E24115D4200A1D5F6 /* mitm_script.zip */,
 				B6736B57239923230040B29D /* Scripts */,
 			);
 			path = Resources;
@@ -618,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				B69F01D323EE2EBC005C8B26 /* ProcessManager.swift */,
+				B652677125619054000B1E34 /* ProcessTask.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -796,13 +796,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B652677A25619D8A000B1E34 /* mitmdump_mb.zip in Resources */,
 				B68F436C23CF5BD900D4B69C /* proxy_wifi_on.sh in Resources */,
 				B6736B1523981D320040B29D /* Assets.xcassets in Resources */,
 				B6736B3023981D320040B29D /* Main.storyboard in Resources */,
 				B6736B60239923230040B29D /* mitm_off.sh in Resources */,
 				B6736AE123981CEF0040B29D /* Main.storyboard in Resources */,
-				B6736B5E239923230040B29D /* mitm_on.sh in Resources */,
-				B694180F24115D4200A1D5F6 /* mitm_script.zip in Resources */,
 				B6736B61239923230040B29D /* proxy_on.sh in Resources */,
 				B6736B5D239923230040B29D /* proxy_off.sh in Resources */,
 				B6736B5F239923230040B29D /* ip_info.sh in Resources */,
@@ -986,6 +985,7 @@
 				B6736B452398EB570040B29D /* TestView.swift in Sources */,
 				B69F01CD23EE2CEE005C8B26 /* TaskReducer.swift in Sources */,
 				B69F01CF23EE2CF7005C8B26 /* TaskStore.swift in Sources */,
+				B652677225619054000B1E34 /* ProcessTask.swift in Sources */,
 				B69F01D423EE2EBC005C8B26 /* ProcessManager.swift in Sources */,
 				B6F4DED323EF5195003FB2C9 /* Components.swift in Sources */,
 				B6F89CC423F192AC008106F9 /* RecordInfo.swift in Sources */,
@@ -1284,7 +1284,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mockingbird/Resources/mockingbird.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1297,7 +1297,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.farfetch.mockingbird;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1313,7 +1313,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mockingbird/Resources/mockingbird.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1326,7 +1326,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.farfetch.mockingbird;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -59,7 +59,11 @@ extension ViewController: GuiRendererDelegate {
 
         Group {
 
-            if serverState.isRunning && taskState.isMitmEnabled {
+            if serverState.isProcessingCommand {
+
+                ButtonDisabled("LOADING")
+
+            } else if serverState.isRunning && taskState.isMitmEnabled {
 
                 ButtonGreen("SERVER") {
 

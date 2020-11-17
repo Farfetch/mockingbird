@@ -28,16 +28,6 @@ Mockingbird was designed to simplify software testing, by easily mocking any sys
 
 ## Installation
 
-### Requeriments
-
-In order to use this tool you need MITMProxy installed through Homebrew.
-
-1. Install [MITMProxy](https://mitmproxy.org/) if you don't already have it.
-
-    ```
-    brew install mitmproxy
-    ```
-
 ### Binary downloads
 
 Oficial binaries can be found on [Release Page](https://github.com/Farfetch/mockingbird/releases)
