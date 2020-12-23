@@ -72,7 +72,7 @@ class Router {
         }
     }
 
-    func handler(for url: URLConvertible) -> (Int?, String?) {
+    func handler(for url: URLConvertible, type: String) -> (Int?, String?) {
 
         let query = retrieveQueryFrom(pattern: url.urlStringValue).removingPercentEncoding ?? ""
         let path = URL(string: url.urlStringValue)?.path ?? ""
@@ -100,7 +100,7 @@ class Router {
         } else {
 
             guard let match = self.matcher.match(path, from: self.handlersKeys) else { return (nil, nil) }
-            guard let handler = self.handlers.first(where: { $0.pattern == match.pattern }) else { return (nil, nil) }
+            guard let handler = self.handlers.first(where: { $0.pattern == match.pattern && $0.type == type }) else { return (nil, nil) }
 
             return handler.factory(url, path, match.values)
         }

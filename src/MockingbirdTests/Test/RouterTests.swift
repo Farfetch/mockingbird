@@ -29,7 +29,7 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/path1")
+        _ = Router.shared.handler(for: "http://www.test.com/path1", type: "GET")
 
         self.wait(for: [expectation], timeout: 1)
     }
@@ -48,7 +48,7 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/path2?query1=test1&query2=test2")
+        _ = Router.shared.handler(for: "http://www.test.com/path2?query1=test1&query2=test2", type: "GET")
 
         self.wait(for: [expectation], timeout: 1)
     }
@@ -74,7 +74,7 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/dyn1/1234/path4?query1=test1&query2=test2")
+        _ = Router.shared.handler(for: "http://www.test.com/dyn1/1234/path4?query1=test1&query2=test2", type: "GET")
 
         self.wait(for: [expectation], timeout: 1)
     }
@@ -100,7 +100,7 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/dyn2/1234/path4?query1=test1&query2=test2")
+        _ = Router.shared.handler(for: "http://www.test.com/dyn2/1234/path4?query1=test1&query2=test2", type: "GET")
 
         self.wait(for: [expectation], timeout: 1)
     }
@@ -143,7 +143,7 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/path4?status=test1,test2,test3&query1=test1&query2=test2")
+        _ = Router.shared.handler(for: "http://www.test.com/path4?status=test1,test2,test3&query1=test1&query2=test2", type: "GET")
 
         self.wait(for: [expectation], timeout: 1)
     }
@@ -180,7 +180,42 @@ class RouterTests: XCTestCase {
             return (200, "")
         }
 
-        _ = Router.shared.handler(for: "http://www.test.com/path5?status=test1,test2,test3&query1=test1&query2=test2")
+        _ = Router.shared.handler(for: "http://www.test.com/path5?status=test1,test2,test3&query1=test1&query2=test2", type: "GET")
+
+        self.wait(for: [expectation], timeout: 1)
+    }
+
+    func testRouterWithSamePath() {
+
+        let expectation = XCTestExpectation(description:"testing router with same path and different type")
+
+        Router.shared.register(type: "GET", code: 200, pattern: "/path6") { _, _, _ in
+
+            XCTAssertFalse(true)
+            return (200, "")
+        }
+
+        Router.shared.register(type: "PUT", code: 200, pattern: "/path6") { _, _, _ in
+
+            XCTAssertFalse(true)
+            return (200, "")
+        }
+
+        Router.shared.register(type: "POST", code: 200, pattern: "/path6") { _, _, _ in
+
+            XCTAssertFalse(true)
+            return (200, "")
+        }
+
+        Router.shared.register(type: "PATCH", code: 200, pattern: "/path6") { _, path, _ in
+
+            XCTAssertEqual(path, "/path6")
+            expectation.fulfill()
+
+            return (200, "")
+        }
+
+        _ = Router.shared.handler(for: "http://www.test.com/path6", type: "PATCH")
 
         self.wait(for: [expectation], timeout: 1)
     }
