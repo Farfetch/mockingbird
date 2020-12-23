@@ -76,7 +76,7 @@ private extension ServerManager {
 
                 let pattern = Router.shared.convertUrlToPattern(transaction.request.url)
 
-                let (code, ret) = Router.shared.handler(for: transaction.request.url)
+                let (code, ret) = Router.shared.handler(for: transaction.request.url, type: transaction.request.method)
 
                 if let code = code,
                     let ret = ret {
