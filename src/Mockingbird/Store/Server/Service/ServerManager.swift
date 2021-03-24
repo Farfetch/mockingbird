@@ -132,7 +132,7 @@ private extension ServerManager {
         let capture = ServerCapture(url: transaction.request.url.absoluteString.removingPercentEncoding ?? "",
                                     urlPath: transaction.request.url.path,
                                     queryParams: transaction.request.url.query?.removingPercentEncoding ?? "",
-                                    requestMethod: transaction.request.method.padding(toLength: 4, withPad: " ", startingAt: 0),
+                                    requestMethod: transaction.request.method,
                                     requestFormatted: transaction.request.body.data(using: .utf8)?.prettyPrintedJSONString as String? ?? "no data",
                                     responseFormatted: transaction.response.body.data(using: .utf8)?.prettyPrintedJSONString as String? ?? "no data",
                                     responseStatusCode: transaction.response.statusCode,
