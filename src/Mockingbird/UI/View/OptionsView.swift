@@ -15,11 +15,25 @@ public class OptionsView {
 
         Group {
 
-            Tree("Server Context", options: .defaultOpen) {
+            Tree("Setup", options: .defaultOpen) {
 
+                Text("Server Context")
                 RadioButtonGroup(state.contextTitles, selectedIndexState: state.currentContextIndex) { val in
 
                     ContextManager.shared.setContext(index: val)
+                }
+                NewLine()
+
+                Text("WORKING DIRECTORY: \(Default.Folder.mockedDataDirectory)")
+                LargeButton("CHANGE DIRECTORY") {
+
+                    if let newDirectory = Util.chooseFolder() {
+
+                        Default.Folder.mockedDataDirectory = newDirectory
+
+                        AppStore.data.dispatch(DataAction.initialize)
+                        AppStore.test.dispatch(TestAction.initialize)
+                    }
                 }
                 NewLine()
             }
@@ -38,21 +52,6 @@ public class OptionsView {
                     LargeButton("DOCUMENTATION") {
 
                         Util.openURL(url: "https://github.com/Farfetch/mockingbird/wiki")
-                    }
-                }
-            }
-
-            NewLine()
-
-            Divider()
-
-            Tree("WORKING DIRECTORY: \(Default.Folder.mockedDataDirectory)", options: .defaultOpen) {
-
-                LargeButton("CHANGE DIRECTORY") {
-
-                    if let newDirectory = Util.chooseFolder() {
-
-                        Default.Folder.mockedDataDirectory = newDirectory
                     }
                 }
             }
