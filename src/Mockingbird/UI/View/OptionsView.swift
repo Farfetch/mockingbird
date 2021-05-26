@@ -41,6 +41,21 @@ public class OptionsView {
                     }
                 }
             }
+
+            NewLine()
+
+            Divider()
+
+            Tree("WORKING DIRECTORY: \(Default.Folder.mockedDataDirectory)", options: .defaultOpen) {
+
+                LargeButton("CHANGE DIRECTORY") {
+
+                    if let newDirectory = Util.chooseFolder() {
+
+                        Default.Folder.mockedDataDirectory = newDirectory
+                    }
+                }
+            }
         }
     }
 }
