@@ -37,7 +37,7 @@ final class Default {
 
             get {
 
-                guard let file = try? File(path: "\(Default.Folder.main)/dataFolder.json"),
+                guard let file = try? File(path: "\(Default.Folder.main)/configurations.json"),
                       let fileData = try? file.readAsString(),
                       let startRange = fileData.range(of: "=")?.upperBound else {
 
@@ -49,23 +49,25 @@ final class Default {
 
             set {
 
-                if let file = try? File(path: "\(Default.Folder.main)/dataFolder.json") {
+                if let configurationsFile = try? File(path: "\(Default.Folder.main)/configurations.json") {
 
-                    let writeData = "dataFolder="+newValue
+                    let configurations = Configuration(dataFolder: newValue)
+                    guard let writeData = try? configurations.jsonData() else { return }
 
-                    try? file.write(writeData)
+                    try? configurationsFile.write(writeData)
 
                 } else {
 
                     guard let mainFolder = try? Files.Folder(path: Default.Folder.main),
-                          let dataFolderFile = try? mainFolder.createFile(named: "dataFolder") else {
+                          let configurationsFolderFile = try? mainFolder.createFile(named: "configurations.json") else {
 
                         return
                     }
 
-                    let writeData = "dataFolder="+newValue
+                    let configurations = Configuration(dataFolder: newValue)
+                    guard let writeData = try? configurations.jsonData() else { return }
 
-                    try? dataFolderFile.write(writeData)
+                    try? configurationsFolderFile.write(writeData)
                 }
             }
         }

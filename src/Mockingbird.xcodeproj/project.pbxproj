@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		216DC9708C747E4014C763B8 /* Pods_Mockingbird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4287C41673FEE0A7D53CFC08 /* Pods_Mockingbird.framework */; };
 		737203AC4CFCF605F6FF30D3 /* Pods_MockingbirdTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */; };
+		8F56D1E2265E7139005159E1 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F56D1E1265E7139005159E1 /* Configurations.swift */; };
 		B63AA30E2469D15200D6026B /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30D2469D15200D6026B /* ServerTests.swift */; };
 		B63AA3102469D76D00D6026B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30F2469D76D00D6026B /* UtilTests.swift */; };
 		B640167E245B50FF009EDBBF /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640167D245B50FF009EDBBF /* DataHelper.swift */; };
@@ -118,6 +119,7 @@
 		83434BFCBF135F5C552864E6 /* Pods-Mockingbird-MockingbirdUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird-MockingbirdUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BCB3BAD6AC4B8D47908BEF /* Pods-Mockingbird-MockingbirdUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; path = "Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MockingbirdTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F56D1E1265E7139005159E1 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		95E8B10A50D0E77C0D935628 /* Pods-MockingbirdTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MockingbirdTests.release.xcconfig"; path = "Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests.release.xcconfig"; sourceTree = "<group>"; };
 		B63AA30D2469D15200D6026B /* ServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTests.swift; sourceTree = "<group>"; };
 		B63AA30F2469D76D00D6026B /* UtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTests.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				B6736AEC23981D310040B29D /* Router.swift */,
 				B65572C823D094D400D5056A /* Tracking.swift */,
 				B69F01C723EE29B6005C8B26 /* Util.swift */,
+				8F56D1E1265E7139005159E1 /* Configurations.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1028,6 +1031,7 @@
 				B6736B2D23981D320040B29D /* DataView.swift in Sources */,
 				B69F01AE23EE064A005C8B26 /* DataStore.swift in Sources */,
 				B6736B1923981D320040B29D /* URLMatcher.swift in Sources */,
+				8F56D1E2265E7139005159E1 /* Configurations.swift in Sources */,
 				B6736B1823981D320040B29D /* URLConvertible.swift in Sources */,
 				B69F01AA23EE0639005C8B26 /* DataActions.swift in Sources */,
 				B683949B23F1CFC600882648 /* Default.swift in Sources */,
