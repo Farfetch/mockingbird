@@ -31,7 +31,7 @@ final class Default {
         static var data: String { workingDirectory + "/data" }
         static var test: String { workingDirectory + "/test" }
 
-        static var workingDirectory = ""
+        static var workingDirectory = Default.Folder.savedWorkingDirectory
 
         static var savedWorkingDirectory: String {
 
@@ -39,15 +39,17 @@ final class Default {
 
                 guard let file = try? File(path: "\(Default.Folder.main)/configurations.json"),
                       let fileData = try? file.readAsString(),
-                      let startRange = fileData.range(of: "=")?.upperBound else {
+                      let configuration = try? Configuration(fileData) else {
 
                     return "/Users/" + NSUserName() + "/.mockingbird"
                 }
 
-                return String(fileData.suffix(from: startRange))
+                return configuration.dataFolder
             }
 
             set {
+
+                Default.Folder.workingDirectory = newValue
 
                 if let configurationsFile = try? File(path: "\(Default.Folder.main)/configurations.json") {
 
