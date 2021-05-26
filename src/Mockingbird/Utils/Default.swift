@@ -53,25 +53,28 @@ final class Default {
 
                 if let configurationsFile = try? File(path: "\(Default.Folder.main)/configurations.json") {
 
-                    let configurations = Configuration(dataFolder: newValue)
-                    guard let writeData = try? configurations.jsonData() else { return }
-
-                    try? configurationsFile.write(writeData)
+                    Self.write(newDirectory: newValue, toFile: configurationsFile)
 
                 } else {
 
                     guard let mainFolder = try? Files.Folder(path: Default.Folder.main),
-                          let configurationsFolderFile = try? mainFolder.createFile(named: "configurations.json") else {
+                          let configurationsFile = try? mainFolder.createFile(named: "configurations.json") else {
 
                         return
                     }
 
-                    let configurations = Configuration(dataFolder: newValue)
-                    guard let writeData = try? configurations.jsonData() else { return }
-
-                    try? configurationsFolderFile.write(writeData)
+                    Self.write(newDirectory: newValue, toFile: configurationsFile)
                 }
             }
+        }
+
+        private static func write(newDirectory: String,
+                                  toFile file: File) {
+
+            let configurations = Configuration(dataFolder: newDirectory)
+            guard let writeData = try? configurations.jsonData() else { return }
+
+            try? file.write(writeData)
         }
     }
 }
