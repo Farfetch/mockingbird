@@ -24,12 +24,13 @@ public class OptionsView {
                 }
                 NewLine()
 
-                Text("WORKING DIRECTORY: \(Default.Folder.mockedDataDirectory)")
+                Text("WORKING DIRECTORY: \(Default.Folder.workingDirectory)")
                 LargeButton("CHANGE DIRECTORY") {
 
                     if let newDirectory = Util.chooseFolder() {
 
-                        Default.Folder.mockedDataDirectory = newDirectory
+                        Default.Folder.savedWorkingDirectory = newDirectory
+                        Default.Folder.workingDirectory = newDirectory
 
                         AppStore.data.dispatch(DataAction.initialize)
                         AppStore.test.dispatch(TestAction.initialize)

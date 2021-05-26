@@ -20,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         Tracking.initialize()
 
+        Default.Folder.workingDirectory = Default.Folder.savedWorkingDirectory
+
         AppStore.data.dispatch(DataAction.initialize)
         AppStore.record.dispatch(RecordAction.initialize)
         AppStore.test.dispatch(TestAction.initialize)

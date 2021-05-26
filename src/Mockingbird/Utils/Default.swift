@@ -26,12 +26,14 @@ final class Default {
 
         static var main = "/Users/" + NSUserName() + "/.mockingbird"
         static var mitm: String { main + "/mitmproxy" }
-        static var capture: String { main + "/capture" }
-        static var record: String { main + "/record" }
-        static var data: String { mockedDataDirectory + "/data" }
-        static var test: String { mockedDataDirectory + "/test" }
+        static var capture: String { workingDirectory + "/capture" }
+        static var record: String { workingDirectory + "/record" }
+        static var data: String { workingDirectory + "/data" }
+        static var test: String { workingDirectory + "/test" }
 
-        static var mockedDataDirectory: String {
+        static var workingDirectory = ""
+
+        static var savedWorkingDirectory: String {
 
             get {
 
