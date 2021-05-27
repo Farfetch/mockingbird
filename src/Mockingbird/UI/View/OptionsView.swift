@@ -30,7 +30,6 @@ public class OptionsView {
                     if let newDirectory = Util.chooseFolder() {
 
                         Default.Folder.savedWorkingDirectory = newDirectory
-                        Default.Folder.workingDirectory = newDirectory
 
                         AppStore.data.dispatch(DataAction.initialize)
                         AppStore.test.dispatch(TestAction.initialize)
