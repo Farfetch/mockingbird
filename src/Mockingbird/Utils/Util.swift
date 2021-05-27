@@ -22,6 +22,27 @@ class Util {
         NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: folder)
     }
 
+    static func chooseFolder() -> String? {
+
+        let dialog = NSOpenPanel()
+
+        dialog.title = "Choose mocked data directory"
+        dialog.showsResizeIndicator = true
+        dialog.showsHiddenFiles = false
+        dialog.canChooseFiles = false
+        dialog.canChooseDirectories = true
+
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+
+            let result = dialog.url
+            return result?.path
+
+        } else {
+
+            return nil
+        }
+    }
+
     static func openURL(url: String) {
 
         if let url = URL(string: url) {

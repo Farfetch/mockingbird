@@ -99,7 +99,7 @@ private extension DataHelper {
                 }
             }
 
-            Default.Folder.main = resourcePath
+            Default.Folder.workingDirectory = resourcePath
 
         } catch {
 
