@@ -15,11 +15,25 @@ public class OptionsView {
 
         Group {
 
-            Tree("Server Context", options: .defaultOpen) {
+            Tree("Setup", options: .defaultOpen) {
 
+                Text("Server Context")
                 RadioButtonGroup(state.contextTitles, selectedIndexState: state.currentContextIndex) { val in
 
                     ContextManager.shared.setContext(index: val)
+                }
+                NewLine()
+
+                Text("WORKING DIRECTORY: \(Default.Folder.workingDirectory)")
+                LargeButton("CHANGE DIRECTORY") {
+
+                    if let newDirectory = Util.chooseFolder() {
+
+                        Default.Folder.savedWorkingDirectory = newDirectory
+
+                        AppStore.data.dispatch(DataAction.initialize)
+                        AppStore.test.dispatch(TestAction.initialize)
+                    }
                 }
                 NewLine()
             }

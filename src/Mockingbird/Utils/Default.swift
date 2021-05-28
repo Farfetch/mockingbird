@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Files
 
 final class Default {
 
@@ -24,10 +25,56 @@ final class Default {
     public enum Folder {
 
         static var main = "/Users/" + NSUserName() + "/.mockingbird"
-        static var capture: String { main + "/capture" }
-        static var data: String { main + "/data" }
         static var mitm: String { main + "/mitmproxy" }
-        static var record: String { main + "/record" }
-        static var test: String { main + "/test" }
+        static var capture: String { workingDirectory + "/capture" }
+        static var record: String { workingDirectory + "/record" }
+        static var data: String { workingDirectory + "/data" }
+        static var test: String { workingDirectory + "/test" }
+
+        static var workingDirectory = Default.Folder.savedWorkingDirectory
+
+        static var savedWorkingDirectory: String {
+
+            get {
+
+                guard let file = try? File(path: "\(Default.Folder.main)/configurations.json"),
+                      let fileData = try? file.readAsString(),
+                      let configuration = try? Configuration(fileData) else {
+
+                    return "/Users/" + NSUserName() + "/.mockingbird"
+                }
+
+                return configuration.dataFolder
+            }
+
+            set {
+
+                Default.Folder.workingDirectory = newValue
+
+                if let configurationsFile = try? File(path: "\(Default.Folder.main)/configurations.json") {
+
+                    Self.write(newDirectory: newValue, toFile: configurationsFile)
+
+                } else {
+
+                    guard let mainFolder = try? Files.Folder(path: Default.Folder.main),
+                          let configurationsFile = try? mainFolder.createFile(named: "configurations.json") else {
+
+                        return
+                    }
+
+                    Self.write(newDirectory: newValue, toFile: configurationsFile)
+                }
+            }
+        }
+
+        private static func write(newDirectory: String,
+                                  toFile file: File) {
+
+            let configurations = Configuration(dataFolder: newDirectory)
+            guard let writeData = try? configurations.jsonData() else { return }
+
+            try? file.write(writeData)
+        }
     }
 }
