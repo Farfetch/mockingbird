@@ -8,9 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Swiftlint
-      run: brew install swiftlint
-
     - name: Dependencies
       working-directory: ./src
       run: pod install --repo-update
