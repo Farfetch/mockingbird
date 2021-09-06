@@ -46,7 +46,7 @@ public class OptionsView {
 
                     LargeButton("OPEN DATA FOLDER") {
 
-                        Util.openFinder(with: Default.Folder.main)
+                        Util.openFinder(with: Default.Folder.workingDirectory)
                     }
 
                     LargeButton("DOCUMENTATION") {
