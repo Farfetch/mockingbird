@@ -78,7 +78,9 @@ class ProcessTask {
         }
     }
 
-    static func launchAsync(process: ProcessType, callback: ProcessTaskCallback?) {
+    static func launchAsync(process: ProcessType,
+                            currentContext: ServerContextInfo?,
+                            callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
 
@@ -89,7 +91,7 @@ class ProcessTask {
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
 
-            let contextHosts = ContextManager.shared.currentContext?.paths.joined(separator: "|") ?? ""
+            let contextHosts = currentContext?.paths.joined(separator: "|") ?? ""
 
             let task = Process()
             task.launchPath = "/bin/sh"
