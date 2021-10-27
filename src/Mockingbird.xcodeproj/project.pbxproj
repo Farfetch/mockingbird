@@ -10,6 +10,7 @@
 		216DC9708C747E4014C763B8 /* Pods_Mockingbird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4287C41673FEE0A7D53CFC08 /* Pods_Mockingbird.framework */; };
 		737203AC4CFCF605F6FF30D3 /* Pods_MockingbirdTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */; };
 		8F56D1E2265E7139005159E1 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F56D1E1265E7139005159E1 /* Configuration.swift */; };
+		8F8592612722DCAA001F55E6 /* mitm_on.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8F8592602722DCAA001F55E6 /* mitm_on.sh */; };
 		B63AA30E2469D15200D6026B /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30D2469D15200D6026B /* ServerTests.swift */; };
 		B63AA3102469D76D00D6026B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA30F2469D76D00D6026B /* UtilTests.swift */; };
 		B640167E245B50FF009EDBBF /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640167D245B50FF009EDBBF /* DataHelper.swift */; };
@@ -120,6 +121,7 @@
 		83BCB3BAD6AC4B8D47908BEF /* Pods-Mockingbird-MockingbirdUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; path = "Target Support Files/Pods-Mockingbird-MockingbirdUITests/Pods-Mockingbird-MockingbirdUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8952BC9226AA3B164321E36D /* Pods_MockingbirdTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MockingbirdTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F56D1E1265E7139005159E1 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		8F8592602722DCAA001F55E6 /* mitm_on.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mitm_on.sh; sourceTree = "<group>"; };
 		95E8B10A50D0E77C0D935628 /* Pods-MockingbirdTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MockingbirdTests.release.xcconfig"; path = "Target Support Files/Pods-MockingbirdTests/Pods-MockingbirdTests.release.xcconfig"; sourceTree = "<group>"; };
 		B63AA30D2469D15200D6026B /* ServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTests.swift; sourceTree = "<group>"; };
 		B63AA30F2469D76D00D6026B /* UtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTests.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 			children = (
 				B6736B5A239923230040B29D /* ip_info.sh */,
 				B6736B5B239923230040B29D /* mitm_off.sh */,
+				8F8592602722DCAA001F55E6 /* mitm_on.sh */,
 				B6736B58239923230040B29D /* proxy_off.sh */,
 				B6736B5C239923230040B29D /* proxy_on.sh */,
 				B68F436B23CF5BD900D4B69C /* proxy_wifi_on.sh */,
@@ -799,6 +802,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8592612722DCAA001F55E6 /* mitm_on.sh in Resources */,
 				B652677A25619D8A000B1E34 /* mitmdump_mb.zip in Resources */,
 				B68F436C23CF5BD900D4B69C /* proxy_wifi_on.sh in Resources */,
 				B6736B1523981D320040B29D /* Assets.xcassets in Resources */,

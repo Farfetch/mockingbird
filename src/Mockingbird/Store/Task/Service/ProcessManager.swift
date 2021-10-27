@@ -18,10 +18,6 @@ final class ProcessManager {
 
         switch process {
 
-        case .mitmOn:
-
-            ProcessTask.runAsync(process: process, callback: self)
-
         case .ipInfo:
 
             ProcessTask.launchSync(process: process, callback: self)

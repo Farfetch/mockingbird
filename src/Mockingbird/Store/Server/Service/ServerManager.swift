@@ -61,19 +61,6 @@ private extension ServerManager {
 
                 var transaction = try ServerTransaction(text)
 
-                if let context = ContextManager.shared.currentContext {
-
-                    let urlStr = transaction.request.url.absoluteString
-                    let exist = context.paths.filter { urlStr.contains($0) }.count != 0
-
-                    if !exist {
-
-                        _log(type: .info, log: "blocked: \(urlStr)")
-                        session.writeText(text)
-                        return
-                    }
-                }
-
                 let pattern = Router.shared.convertUrlToPattern(transaction.request.url)
 
                 let (code, ret) = Router.shared.handler(for: transaction.request.url, type: transaction.request.method)
