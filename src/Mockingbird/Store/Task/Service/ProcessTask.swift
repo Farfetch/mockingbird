@@ -22,7 +22,7 @@ enum ProcessType {
     case proxyOn
     case proxyWifiOn
     case proxyOff
-    case mitmOn
+    case mitmOn(currentContext: ServerContextInfo?)
     case mitmOff
     case ipInfo
 
@@ -79,7 +79,6 @@ class ProcessTask {
     }
 
     static func launchAsync(process: ProcessType,
-                            currentContext: ServerContextInfo?,
                             callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
@@ -91,7 +90,12 @@ class ProcessTask {
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
 
-            let contextHosts = currentContext?.paths.joined(separator: "|") ?? ""
+            var contextHosts = ""
+
+            if case .mitmOn(let currentContext) = process {
+
+                contextHosts = currentContext?.paths.joined(separator: "|") ?? ""
+            }
 
             let task = Process()
             task.launchPath = "/bin/sh"

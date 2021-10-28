@@ -25,7 +25,6 @@ final class ProcessManager {
         default:
 
             ProcessTask.launchAsync(process: process,
-                                    currentContext: ContextManager.shared.currentContext,
                                     callback: self)
         }
     }
