@@ -17,32 +17,25 @@ protocol ProcessTaskCallback {
     func processEnded(_ process: ProcessType)
 }
 
-struct ProcessObject {
-
-    let type: ProcessType
-    let script: String?
-    let executable: String?
-}
-
 enum ProcessType {
 
     case proxyOn
     case proxyWifiOn
     case proxyOff
-    case mitmOn
+    case mitmOn(currentContext: ServerContextInfo?)
     case mitmOff
     case ipInfo
 
-    var command: ProcessObject {
+    var script: String {
 
         switch self {
 
-        case .proxyOn: return ProcessObject(type: self, script: "proxy_on", executable: nil)
-        case .proxyWifiOn: return ProcessObject(type: self, script: "proxy_wifi_on", executable: nil)
-        case .proxyOff: return ProcessObject(type: self, script: "proxy_off", executable: nil)
-        case .mitmOn: return ProcessObject(type: self, script: nil, executable: "\(Default.Folder.mitm)/mitmdump_mb")
-        case .mitmOff: return ProcessObject(type: self, script: "mitm_off", executable: nil)
-        case .ipInfo: return ProcessObject(type: self, script: "ip_info", executable: nil)
+        case .proxyOn: return "proxy_on"
+        case .proxyWifiOn: return "proxy_wifi_on"
+        case .proxyOff: return "proxy_off"
+        case .mitmOn: return "mitm_on"
+        case .mitmOff: return "mitm_off"
+        case .ipInfo: return "ip_info"
         }
     }
 }
@@ -51,7 +44,7 @@ class ProcessTask {
 
     static func launchSync(process: ProcessType, callback: ProcessTaskCallback?) {
 
-        guard let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") else { return }
+        guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
 
         DispatchQueue.global(qos: .background).async {
 
@@ -85,9 +78,10 @@ class ProcessTask {
         }
     }
 
-    static func launchAsync(process: ProcessType, callback: ProcessTaskCallback?) {
+    static func launchAsync(process: ProcessType,
+                            callback: ProcessTaskCallback?) {
 
-        guard let script = Bundle.main.path(forResource: process.command.script, ofType: "sh") else { return }
+        guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
 
         DispatchQueue.global(qos: .background).async {
 
@@ -96,9 +90,16 @@ class ProcessTask {
             let stdoutPipe = Pipe()
             let stderrPipe = Pipe()
 
+            var contextHosts = ""
+
+            if case .mitmOn(let currentContext) = process {
+
+                contextHosts = currentContext?.paths.joined(separator: "|") ?? ""
+            }
+
             let task = Process()
             task.launchPath = "/bin/sh"
-            task.arguments = [script, (script as NSString).deletingLastPathComponent]
+            task.arguments = [script, (script as NSString).deletingLastPathComponent, contextHosts]
             task.standardOutput = stdoutPipe
             task.standardError = stderrPipe
 
@@ -114,49 +115,6 @@ class ProcessTask {
 
             task.launch()
             task.waitUntilExit()
-
-            NotificationCenter.default.removeObserver(stdoutObserver)
-            NotificationCenter.default.removeObserver(stderrObserver)
-
-            callback?.processEnded(process)
-        }
-    }
-
-    static func runAsync(process: ProcessType, callback: ProcessTaskCallback?) {
-
-        guard let executablePath = process.command.executable else { return }
-
-        DispatchQueue.global(qos: .background).async {
-
-            callback?.processStarted(process)
-
-            let stdoutPipe = Pipe()
-            let stderrPipe = Pipe()
-
-            let task = Process()
-            task.executableURL = URL(fileURLWithPath: executablePath)
-            task.standardOutput = stdoutPipe
-            task.standardError = stderrPipe
-
-            let stdoutObserver = Self.addNotification(for: stdoutPipe.fileHandleForReading) { text in
-
-                callback?.stdoutUpdated(process, text: text)
-            }
-
-            let stderrObserver = Self.addNotification(for: stderrPipe.fileHandleForReading) { text in
-
-                callback?.stderrUpdated(process, text: text)
-            }
-
-            do {
-
-                try task.run()
-                task.waitUntilExit()
-
-            } catch {
-
-                callback?.processError(process, error: error)
-            }
 
             NotificationCenter.default.removeObserver(stdoutObserver)
             NotificationCenter.default.removeObserver(stderrObserver)

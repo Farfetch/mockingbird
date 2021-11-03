@@ -118,7 +118,7 @@ private extension TaskReducer {
 
         state.isMitmEnabled = true
 
-        ProcessManager.shared.execute(process: .mitmOn)
+        ProcessManager.shared.execute(process: .mitmOn(currentContext: ContextManager.shared.currentContext))
     }
 
     static func stopMitm(with state: inout TaskState) {

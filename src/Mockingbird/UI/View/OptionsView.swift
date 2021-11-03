@@ -22,6 +22,11 @@ public class OptionsView {
 
                     ContextManager.shared.setContext(index: val)
                 }
+
+                if AppStore.task.state.isMitmEnabled {
+                    Text("Please disable the server before changing the context")
+                }
+
                 NewLine()
 
                 Text("WORKING DIRECTORY: \(Default.Folder.workingDirectory)")
@@ -46,7 +51,7 @@ public class OptionsView {
 
                     LargeButton("OPEN DATA FOLDER") {
 
-                        Util.openFinder(with: Default.Folder.main)
+                        Util.openFinder(with: Default.Folder.workingDirectory)
                     }
 
                     LargeButton("DOCUMENTATION") {
