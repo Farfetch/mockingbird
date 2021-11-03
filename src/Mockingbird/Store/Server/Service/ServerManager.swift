@@ -70,18 +70,17 @@ private extension ServerManager {
 
                     self.handle(transaction: transaction, pattern: pattern, mocked: true, isMock: false, original: text)
 
-                    if transaction.response.statusCode != 200 {
-
-                        transaction.response.headers.append(["Content-Type", "application/json; charset=utf-8"])
-                        transaction.response.headers.append(["Content-Encoding", "gzip"])
-                        transaction.response.headers.append(["Content-Language", "en-GB"])
-                    }
-
                     let textMinify = ret.minify
                     transaction.response.statusCode = code
                     transaction.response.body = textMinify
                     transaction.response.headers.removeAll { $0[0] == "Content-Length" }
                     transaction.response.headers.append(["Content-Length", "\(ret.count)"])
+                    transaction.response.headers.removeAll { $0[0] == "Content-Type" }
+                    transaction.response.headers.append(["Content-Type", "application/json; charset=utf-8"])
+                    transaction.response.headers.removeAll { $0[0] == "Content-Encoding" }
+                    transaction.response.headers.append(["Content-Encoding", "gzip"])
+                    transaction.response.headers.removeAll { $0[0] == "Content-Language" }
+                    transaction.response.headers.append(["Content-Language", "en-GB"])
 
                     self.handle(transaction: transaction, pattern: pattern, mocked: false, isMock: true, original: textMinify)
 
