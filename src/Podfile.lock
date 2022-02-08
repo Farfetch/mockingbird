@@ -10,7 +10,7 @@ PODS:
   - Files (4.0.2)
   - ReSwift (5.0.0)
   - Starscream (4.0.4)
-  - Swifter (1.4.7)
+  - Swifter (1.5.0)
   - SwiftGui (0.9.2)
   - Zip (1.1.0)
 
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - Files (~> 4.0.2)
   - ReSwift (~> 5.0.0)
   - Starscream (~> 4.0.4)
-  - Swifter (~> 1.4.7)
+  - Swifter (~> 1.5.0)
   - SwiftGui (~> 0.9.2)
   - Zip (~> 1.1.0)
 
@@ -38,10 +38,10 @@ SPEC CHECKSUMS:
   Files: d88e31b84d65e754935053b1c584ea8e2320698a
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
-  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
+  Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwiftGui: 081f72b4dabff4ffb9af254650ec8baa17ec1949
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 45bdf95efc6b5c0117021132761b1aa1092a9f9e
+PODFILE CHECKSUM: cce932a11f55655ec0a468e71a9e74a9f2cdf490
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2
