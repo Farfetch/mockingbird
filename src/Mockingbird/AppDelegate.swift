@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -49,5 +50,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillResignActive(_ aNotification: Notification) {
+    }
+
+    @IBAction func checkForUpdates(_ sender: Any) {
+        SUUpdater.shared().checkForUpdates(nil)
     }
 }
