@@ -4,7 +4,7 @@ target 'Mockingbird' do
   use_frameworks!
 
   # Pods for Mockingbird
-  pod 'Swifter', '~> 1.4.7'
+  pod 'Swifter', '~> 1.5.0'
   pod 'Zip', '~> 1.1.0'
   pod 'SwiftGui', '~> 0.9.2'
   pod 'ReSwift', '~> 5.0.0'
