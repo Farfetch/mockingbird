@@ -31,7 +31,7 @@ class ServerTests: XCTestCase {
             return (500, "")
         }
 
-        let socket = WebSocket(request: URLRequest(url: URL(string: "ws://localhost:5000/api/stream")!))
+        let socket = WebSocket(request: URLRequest(url: URL(string: "ws://localhost:5999/api/stream")!))
 
         socket.onEvent = { event in
 
