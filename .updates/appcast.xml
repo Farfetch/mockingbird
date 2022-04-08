@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Mockingbird</title>
+        <item>
+            <title>1.4.0</title>
+            <pubDate>Wed, 30 Mar 2022 17:05:55 +0100</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/Farfetch/mockingbird/releases/download/1.4.0/Mockingbird_1.4.0.zip" length="23444158" type="application/octet-stream"/>
+        </item>
+    </channel>
+</rss>

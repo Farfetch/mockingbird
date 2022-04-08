@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -49,5 +50,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillResignActive(_ aNotification: Notification) {
+    }
+
+    /// This function is called when the user selects "Check for updates" on the mockingbird menu
+    @IBAction func checkForUpdates(_ sender: Any) {
+        SUUpdater.shared().checkForUpdates(nil)
     }
 }
