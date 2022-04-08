@@ -32,5 +32,9 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/Farfetch/mockingbird/master/.updates/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>CDw2xInMlNL3hNPLvGXwXrclHyDR95zQD7lC7rNw/5M=</string>
 </dict>
 </plist>
