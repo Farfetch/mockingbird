@@ -31,9 +31,9 @@ class TaskReducer {
 
             Self.startAll(with: &state)
 
-        case .stopAll:
+        case .stopAll(let forceSync):
 
-            Self.stopAll(with: &state)
+            Self.stopAll(with: &state, forceSync: forceSync)
 
         case .startProxy(let isWifi):
 
@@ -91,10 +91,10 @@ private extension TaskReducer {
         Self.startProxy(with: &state)
     }
 
-    static func stopAll(with state: inout TaskState) {
+    static func stopAll(with state: inout TaskState, forceSync: Bool = false) {
 
-        Self.stopProxy(with: &state)
-        Self.stopMitm(with: &state)
+        Self.stopProxy(with: &state, forceSync: forceSync)
+        Self.stopMitm(with: &state, forceSync: forceSync)
     }
 
     static func startProxy(with state: inout TaskState, isWifi: Bool = false) {
@@ -106,12 +106,12 @@ private extension TaskReducer {
         ProcessManager.shared.execute(process: .ipInfo)
     }
 
-    static func stopProxy(with state: inout TaskState) {
+    static func stopProxy(with state: inout TaskState, forceSync: Bool = false) {
 
         state.isProxyEnabled = false
         state.ipInfo = ""
 
-        ProcessManager.shared.execute(process: .proxyOff)
+        ProcessManager.shared.execute(process: .proxyOff, forceSync: forceSync)
     }
 
     static func startMitm(with state: inout TaskState) {
@@ -121,10 +121,10 @@ private extension TaskReducer {
         ProcessManager.shared.execute(process: .mitmOn(currentContext: ContextManager.shared.currentContext))
     }
 
-    static func stopMitm(with state: inout TaskState) {
+    static func stopMitm(with state: inout TaskState, forceSync: Bool = false) {
 
         state.isMitmEnabled = false
 
-        ProcessManager.shared.execute(process: .mitmOff)
+        ProcessManager.shared.execute(process: .mitmOff, forceSync: forceSync)
     }
 }

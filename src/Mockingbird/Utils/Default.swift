@@ -25,7 +25,7 @@ final class Default {
     public enum Folder {
 
         static var main = "/Users/" + NSUserName() + "/.mockingbird"
-        static var mitm: String { main + "/mitmproxy-v2" }
+        static var mitm: String { main + "/mitmproxy" }
         static var capture: String { workingDirectory + "/capture" }
         static var record: String { workingDirectory + "/record" }
         static var data: String { workingDirectory + "/data" }

@@ -42,44 +42,48 @@ enum ProcessType {
 
 class ProcessTask {
 
-    static func launchSync(process: ProcessType, callback: ProcessTaskCallback?) {
+    static func launch(process: ProcessType, callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
 
+        callback?.processStarted(process)
+
+        let stdoutPipe = Pipe()
+        let stderrPipe = Pipe()
+
+        let task = Process()
+        task.launchPath = "/bin/sh"
+        task.arguments = [script, (script as NSString).deletingLastPathComponent]
+        task.standardOutput = stdoutPipe
+        task.standardError = stderrPipe
+
+        task.launch()
+        task.waitUntilExit()
+
+        if let stdoutText = String(data: stdoutPipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
+           stdoutText.count > 0 {
+
+            callback?.stdoutUpdated(process, text: stdoutText)
+        }
+
+        if let stderrText = String(data: stderrPipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
+           stderrText.count > 0 {
+
+            callback?.stderrUpdated(process, text: stderrText)
+        }
+
+        callback?.processEnded(process)
+    }
+
+    static func launchBackgroundSync(process: ProcessType, callback: ProcessTaskCallback?) {
+
         DispatchQueue.global(qos: .background).async {
 
-            callback?.processStarted(process)
-
-            let stdoutPipe = Pipe()
-            let stderrPipe = Pipe()
-
-            let task = Process()
-            task.launchPath = "/bin/sh"
-            task.arguments = [script, (script as NSString).deletingLastPathComponent]
-            task.standardOutput = stdoutPipe
-            task.standardError = stderrPipe
-
-            task.launch()
-            task.waitUntilExit()
-
-            if let stdoutText = String(data: stdoutPipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
-               stdoutText.count > 0 {
-
-                callback?.stdoutUpdated(process, text: stdoutText)
-            }
-
-            if let stderrText = String(data: stderrPipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
-               stderrText.count > 0 {
-
-                callback?.stderrUpdated(process, text: stderrText)
-            }
-
-            callback?.processEnded(process)
+            Self.launch(process: process, callback: callback)
         }
     }
 
-    static func launchAsync(process: ProcessType,
-                            callback: ProcessTaskCallback?) {
+    static func launchBackgroundAsync(process: ProcessType, callback: ProcessTaskCallback?) {
 
         guard let script = Bundle.main.path(forResource: process.script, ofType: "sh") else { return }
 

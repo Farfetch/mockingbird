@@ -14,18 +14,24 @@ final class ProcessManager {
 
     private var mitmProcess: Process?
 
-    func execute(process: ProcessType) {
+    func execute(process: ProcessType, forceSync: Bool = false) {
 
-        switch process {
+        if forceSync {
 
-        case .ipInfo:
+            ProcessTask.launch(process: process, callback: self)
 
-            ProcessTask.launchSync(process: process, callback: self)
+        } else {
 
-        default:
+            switch process {
 
-            ProcessTask.launchAsync(process: process,
-                                    callback: self)
+            case .ipInfo:
+
+                ProcessTask.launchBackgroundSync(process: process, callback: self)
+
+            default:
+
+                ProcessTask.launchBackgroundAsync(process: process, callback: self)
+            }
         }
     }
 }
