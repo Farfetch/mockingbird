@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AppStore.task.dispatch(TaskAction.initialize)
         ServerManager.shared.initialize()
 
-        AppStore.task.dispatch(TaskAction.stopAll)
+        AppStore.task.dispatch(TaskAction.stopAll(forceSync: false))
         ServerManager.shared.stop()
     }
 
@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
 
         ServerManager.shared.stop()
-        AppStore.task.dispatch(TaskAction.stopAll)
+        AppStore.task.dispatch(TaskAction.stopAll(forceSync: true))
 
         NSApp.terminate(self)
     }

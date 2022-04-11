@@ -12,7 +12,7 @@ enum TaskAction: Action {
 
     case initialize
     case startAll
-    case stopAll
+    case stopAll(forceSync: Bool)
     case startProxy(isWifi: Bool)
     case stopProxy
     case startMitm
