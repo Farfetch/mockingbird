@@ -70,7 +70,7 @@ private extension TaskReducer {
 
             let dataFolder = try Folder(path: Default.Folder.mitm)
 
-            if dataFolder.files.count() <= 0 {
+            if !dataFolder.containsFile(named: "mitmdump_mbv2") {
 
                 if let fileURL = Bundle.main.url(forResource: "mitmdump_mb", withExtension: "zip"),
                     let destURL = URL(string: Default.Folder.mitm) {
