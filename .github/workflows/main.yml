@@ -14,8 +14,12 @@ jobs:
 
     - name: Build
       working-directory: ./src
-      run: xcodebuild -workspace Mockingbird.xcworkspace build -scheme Mockingbird
+      #run: xcodebuild -workspace Mockingbird.xcworkspace build -scheme Mockingbird
+      run: bundle exec fastlane release
 
     - name: Test
       working-directory: ./src
       run: xcodebuild -workspace Mockingbird.xcworkspace test -scheme Mockingbird '-only-testing:MockingbirdTests'
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_RELEASES_URL: ${{ secrets.SLACK_RELEASES_URL }}

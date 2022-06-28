@@ -1,0 +1,150 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+lane :release do
+  build
+  release_app
+end
+
+lane :build do
+  gym(
+    scheme: 'Mockingbird',
+    output_name: 'Mockingbird',
+    output_directory: './build',
+    export_method: 'developer-id',
+    skip_package_pkg: true
+  )
+end
+
+lane :release_app do
+  
+  app_path = "../build/Mockingbird.app"
+  raise "No built app found in #{app_path}" unless File.exist?(app_path)
+
+  app_zip_path = zip_app_bundle(app_path: app_path)
+  raise "No zipped app found in #{app_zip_path}" unless File.exist?(app_zip_path)
+
+  ENV['FL_GET_INFO_PLIST_PATH'] = File.absolute_path("#{app_path}/Info.plist")
+  human_version = get_info_plist_value(key: "CFBundleShortVersionString")
+  machine_version = get_info_plist_value(key: "CFBundleVersion")
+
+  release_info = github(
+    assets: [app_zip_path],
+    version: human_version
+  )
+
+  sparkle(
+    app_zip_path: app_zip_path,
+    release_title: release_info[:title],
+    release_description: release_info[:description],
+    release_version_tag: release_info[:version_tag],
+    machine_version: machine_version,
+    human_version: human_version
+  )
+end
+
+#private
+
+desc "Updates the appcast.xml file"
+private_lane :sparkle do |params|
+
+  #Create release notes file
+  release_notes_html = render_github_markdown(
+    context_repository: "Farfetch/mockingbird",
+    api_token: ENV["GITHUB_TOKEN"],
+    markdown_contents: params[:release_description]
+  )
+
+  release_notes_file_name = "#{params[:release_version_tag]}.html"
+
+  release_notes_html_path = File.absolute_path("../../.updates/ReleaseNotes/#{release_notes_file_name}")
+  File.open(release_notes_html_path, "w") { |io| io.write(release_notes_html) }
+
+  # Now we need to commit this new file at the end of the workflow!
+  #sh "cd .. && git add '#{release_notes_html_path}'"
+
+  release_notes_html_url = "https://raw.githubusercontent.com/Farfetch/mockingbird/master/.updates/ReleaseNotes/#{release_notes_file_name}"
+  app_download_url = "https://github.com/Farfetch/mockingbird/releases/download/#{params[:release_version_tag]}/Mockingbird_#{params[:release_version_tag]}.zip"
+
+  UI.message "Successfully created release notes file at path #{release_notes_html_path}"
+
+  sparkle_add_update(
+      feed_file: "../.updates/appcast.xml",
+      app_download_url: app_download_url,
+      app_size: "#{File.size(params[:app_zip_path])}",
+      machine_version: params[:machine_version],
+      human_version: params[:human_version],
+      title: params[:release_title],
+      release_notes_link: release_notes_html_url,
+      deployment_target: "10.13"
+  )
+
+  UI.message "Release item added to the Sparkle XML file (Please, review it)"
+end
+
+private_lane :zip_app_bundle do |params|
+  app_path = params[:app_path]
+  app_zip_path = "#{app_path}.zip"
+  abs_app_path = File.absolute_path(app_path)
+  app_folder = File.dirname(abs_app_path)
+  sh "cd '#{app_folder}'; zip -r --symlinks '#{File.basename(app_zip_path)}' '#{File.basename(app_path)}'"
+  File.absolute_path(app_zip_path)
+end
+
+private_lane :github do |params|
+  assets = params[:assets]
+  version = params[:version]
+  version_tag = "v#{version}"
+
+  # prep the local state
+  ensure_git_status_clean
+  ensure_git_branch(branch: "master")
+  git_pull
+
+  # regen the changelog and open it
+  sh "cd .. && github_changelog_generator -t $GITHUB_TOKEN && subl CHANGELOG.md"
+
+  # create a new release on GitHub
+  repo_url = "Farfetch/mockingbird"
+  ENV["FL_GITHUB_RELEASE_API_TOKEN"] = ENV["GITHUB_TOKEN"]
+
+  release = set_github_release(
+    repository_name: repo_url,
+    upload_assets: assets,
+    name: version,
+    tag_name: version_tag,
+    description: description,
+    is_draft: false,
+    is_prerelease: false
+  )
+
+  # regenerate changelog to get it committed
+  # sh "cd .. && github_changelog_generator -t $GITHUB_TOKEN"
+  # sh "cd .. && git commit -am \"changelog\" && git push"
+
+  slack(
+    slack_url: ENV['SLACK_RELEASES_URL'],
+    message: "Successfully released [Mockingbird #{version_tag}](#{release['html_url']}) :rocket:",
+    payload: {
+      "New" => release['body']
+    }
+  ) 
+  
+  {
+      title: version,
+      description: description,
+      version_tag: version_tag
+  }
+end
